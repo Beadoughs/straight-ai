@@ -22,7 +22,7 @@ export function Navbar() {
           </span>
         </div>
         <Button asChild size="sm" className="font-medium">
-          <a href="#book-call">Get a Free Custom Mockup</a>
+          <a href="/booking">Get a Free Custom Mockup</a>
         </Button>
       </div>
     </motion.nav>

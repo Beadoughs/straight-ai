@@ -25,7 +25,7 @@ export function FinalCTA() {
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
             <Button asChild size="lg" className="group h-14 px-10 text-lg font-medium">
-              <a href="#book-call">
+              <a href="/booking">
                 Get Your Free Custom Mockup
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>

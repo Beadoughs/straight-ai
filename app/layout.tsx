@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Self Starter | AI-Powered Website Development',
-  description: 'Launch your custom website for $299. Scale with AI chatbot, hosting & management for just $35/week. No tech skills needed.',
+  title: 'Straight AI | Premium Website Development',
+  description: 'Launch your custom website for $299. Complete with AI chatbot, hosting & management for just $35/week.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -39,6 +40,15 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        
+        {/* PLACEHOLDER: AI Chatbot Script (e.g., Chatbase, Voiceflow) */}
+        {/* Replace the src with your actual chatbot script URL and add your widget ID below */}
+        {/* <Script
+          src="https://www.chatbase.co/embed.min.js"
+          strategy="lazyOnload"
+          chatbotId="YOUR_CHATBOT_ID_HERE"
+          domain="www.chatbase.co"
+        /> */}
       </body>
     </html>
   )

@@ -82,7 +82,7 @@ export function Hero() {
             className="mt-10"
           >
             <Button asChild size="lg" className="group h-12 px-8 text-base font-medium">
-              <a href="#book-call">
+              <a href="/booking">
                 Get a Free Custom Mockup
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
