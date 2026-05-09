@@ -25,7 +25,7 @@ export default function Home() {
       <PricingCTA />
       <FinalCTA />
       <Footer />
-      <div className="h-20 md:hidden" />
+      <div className="h-24 md:hidden" />
       <MobileStickyCTA />
     </main>
   );

@@ -39,12 +39,12 @@ export default function BookingPage() {
     <main className="min-h-screen flex flex-col">
       <Navbar />
       
-      <div className="flex-1 pt-32 pb-20">
-        <div className="mx-auto max-w-4xl px-6 text-center mb-10">
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl mb-4">
+      <div className="flex-1 pb-20 pt-36 md:pt-32">
+        <div className="mx-auto mb-8 max-w-4xl px-6 text-center">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             Book Free Website Consult
           </h1>
-          <p className="text-lg text-white/85">
+          <p className="text-base text-white/85 sm:text-lg">
             Pick a time that works for you. This is a 15-minute, no-obligation call to map your website growth priorities.
           </p>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-sm">
@@ -60,7 +60,7 @@ export default function BookingPage() {
           </div>
         </div>
 
-        <div className="mx-auto mb-8 grid max-w-4xl gap-3 px-6 md:grid-cols-3">
+        <div className="mx-auto mb-6 grid max-w-4xl gap-3 px-6 md:mb-8 md:grid-cols-3">
           {[
             "Book your time",
             "Share your business goals",

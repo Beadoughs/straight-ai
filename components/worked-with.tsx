@@ -17,12 +17,12 @@ export function WorkedWith() {
           <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
             Who we have worked with
           </p>
-          <div className="mt-4 grid items-center gap-6 md:grid-cols-[220px_1fr]">
+          <div className="mt-4 grid items-center gap-4 md:grid-cols-[220px_1fr]">
             <a
               href="https://beadoughs.com"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-20 items-center justify-center rounded-xl border border-border/60 bg-background/60 p-4"
+              className="inline-flex h-16 items-center justify-center rounded-xl border border-border/60 bg-background/60 p-4 md:h-20"
             >
               <Image
                 src="/beadoughs-logo.svg"
