@@ -1,19 +1,39 @@
 "use client";
 
-import { useEffect } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { InlineWidget } from "react-calendly";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { trackEvent } from "@/lib/analytics";
 
 export default function BookingPage() {
-  const calendlyUrl =
+  const baseCalendlyUrl =
     process.env.NEXT_PUBLIC_CALENDLY_URL ||
     "https://calendly.com/straightai/30min";
+  const [isQualified, setIsQualified] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    businessType: "",
+    goal: "",
+    budget: "",
+    timeline: "",
+  });
+
+  const calendlyUrl = useMemo(() => {
+    const separator = baseCalendlyUrl.includes("?") ? "&" : "?";
+    return `${baseCalendlyUrl}${separator}hide_gdpr_banner=1`;
+  }, [baseCalendlyUrl]);
 
   useEffect(() => {
     trackEvent("booking_page_view");
   }, []);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsQualified(true);
+    trackEvent("booking_qualified_form_submitted");
+  };
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -56,18 +76,124 @@ export default function BookingPage() {
           ))}
         </div>
 
-        <div className="h-[700px] w-full rounded-xl overflow-hidden border border-border/60 bg-card/30">
-          <InlineWidget
-            url={calendlyUrl}
-            styles={{ height: "100%", width: "100%" }}
-            prefill={{
-              email: "",
-              firstName: "",
-              lastName: "",
-              name: "",
-            }}
-          />
-        </div>
+        {!isQualified ? (
+          <div className="mx-auto w-full max-w-4xl rounded-2xl border border-border/60 bg-card/40 p-6 md:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Quick questions before booking
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              This helps us prepare your call and build a better mockup plan.
+            </p>
+
+            <form className="mt-6 grid gap-4 md:grid-cols-2" onSubmit={handleSubmit}>
+              <label className="grid gap-2 text-sm">
+                Full name
+                <input
+                  className="h-11 rounded-md border border-input bg-background px-3 text-foreground"
+                  required
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData((current) => ({ ...current, name: e.target.value }))
+                  }
+                />
+              </label>
+              <label className="grid gap-2 text-sm">
+                Email
+                <input
+                  className="h-11 rounded-md border border-input bg-background px-3 text-foreground"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData((current) => ({ ...current, email: e.target.value }))
+                  }
+                />
+              </label>
+              <label className="grid gap-2 text-sm">
+                Business type
+                <input
+                  className="h-11 rounded-md border border-input bg-background px-3 text-foreground"
+                  required
+                  value={formData.businessType}
+                  onChange={(e) =>
+                    setFormData((current) => ({
+                      ...current,
+                      businessType: e.target.value,
+                    }))
+                  }
+                />
+              </label>
+              <label className="grid gap-2 text-sm">
+                Budget
+                <select
+                  className="h-11 rounded-md border border-input bg-background px-3 text-foreground"
+                  required
+                  value={formData.budget}
+                  onChange={(e) =>
+                    setFormData((current) => ({ ...current, budget: e.target.value }))
+                  }
+                >
+                  <option value="">Select budget</option>
+                  <option value="$499 upfront + $49/week">Ready for current package</option>
+                  <option value="Need custom package">Need custom package</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </label>
+              <label className="grid gap-2 text-sm md:col-span-2">
+                Main goal for your website
+                <textarea
+                  className="min-h-24 rounded-md border border-input bg-background px-3 py-2 text-foreground"
+                  required
+                  value={formData.goal}
+                  onChange={(e) =>
+                    setFormData((current) => ({ ...current, goal: e.target.value }))
+                  }
+                />
+              </label>
+              <label className="grid gap-2 text-sm md:col-span-2">
+                Preferred timeline
+                <input
+                  className="h-11 rounded-md border border-input bg-background px-3 text-foreground"
+                  placeholder="Example: As soon as possible / within 2 weeks"
+                  required
+                  value={formData.timeline}
+                  onChange={(e) =>
+                    setFormData((current) => ({ ...current, timeline: e.target.value }))
+                  }
+                />
+              </label>
+              <button
+                type="submit"
+                className="md:col-span-2 inline-flex h-11 items-center justify-center rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground"
+              >
+                Continue to booking calendar
+              </button>
+            </form>
+          </div>
+        ) : (
+          <div className="h-[760px] w-full rounded-xl overflow-hidden border border-border/60 bg-card/30">
+            <InlineWidget
+              url={calendlyUrl}
+              styles={{ height: "100%", width: "100%" }}
+              pageSettings={{
+                backgroundColor: "000000",
+                textColor: "ffffff",
+                primaryColor: "ffffff",
+              }}
+              prefill={{
+                email: formData.email,
+                firstName: formData.name.split(" ")[0] || "",
+                lastName: formData.name.split(" ").slice(1).join(" "),
+                name: formData.name,
+                customAnswers: {
+                  a1: formData.businessType,
+                  a2: formData.goal,
+                  a3: `${formData.budget} | ${formData.timeline}`,
+                },
+              }}
+            />
+          </div>
+        )}
       </div>
 
       <Footer />
