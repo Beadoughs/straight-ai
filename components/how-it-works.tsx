@@ -16,21 +16,21 @@ const steps = [
     icon: Cpu,
     title: "We Build It",
     description:
-      "Our experts build your full website using Straight AI technology, ensuring it's fast, beautiful, and conversion-optimized.",
+      "We design and build your site for clarity, speed, and conversion.",
   },
   {
     number: "03",
     icon: Rocket,
     title: "Launch & Manage",
     description:
-      "We launch your site and handle all the hosting, while your new 24/7 AI Chatbot captures leads for you.",
+      "We launch, host, and manage updates so your website keeps performing.",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <section className="bg-secondary/30 py-10 md:py-14">
-      <div className="mx-auto max-w-6xl px-6">
+    <section className="bg-gradient-to-b from-[#111111] to-[#141414] py-0">
+      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,8 +41,8 @@ export function HowItWorks() {
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             How It Works
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-white/85 md:text-lg">
-            Three simple steps to your new website
+          <p className="mx-auto mt-3 max-w-2xl text-white/85 md:text-lg">
+            Three clear steps to launch.
           </p>
         </motion.div>
 

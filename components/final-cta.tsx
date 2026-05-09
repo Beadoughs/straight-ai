@@ -7,8 +7,8 @@ import { trackEvent } from "@/lib/analytics";
 
 export function FinalCTA() {
   return (
-    <section id="book-call" className="bg-secondary/30 py-10 md:py-14">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="book-call" className="bg-gradient-to-b from-[#242424] to-[#0d0d0d] py-0">
+      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -17,11 +17,10 @@ export function FinalCTA() {
           className="flex flex-col items-center text-center"
         >
           <h2 className="max-w-3xl text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Ready to Launch Your Website?
+            Ready to Move Faster Online?
           </h2>
-          <p className="mt-6 max-w-2xl text-lg text-white/85">
-            Book your free consult to get a clear action plan for upgrading your site,
-            improving visibility, and converting more traffic.
+          <p className="mt-4 max-w-2xl text-lg text-white/85">
+            Book a free consult and leave with a practical growth plan.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">

@@ -24,7 +24,7 @@ const packageFeatures = [
   {
     icon: Search,
     title: "SEO-Ready Structure",
-    description: "Built to rank well on search engines from day one",
+    description: "Built for search visibility from day one",
   },
   {
     icon: Clock,
@@ -35,8 +35,8 @@ const packageFeatures = [
 
 export function ValueStack() {
   return (
-    <section id="offer" className="py-10 md:py-14">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="offer" className="bg-gradient-to-b from-[#0d0d0d] to-[#111111] py-0">
+      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,11 +45,10 @@ export function ValueStack() {
           className="text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Launch and Manage Website Package
+            Website Package
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-white/85 md:text-lg">
-            One clear package for business owners: launch plus ongoing management,
-            all tied together from day one.
+          <p className="mx-auto mt-3 max-w-2xl text-white/85 md:text-lg">
+            One offer. Fast launch. Ongoing management.
           </p>
         </motion.div>
 
@@ -72,7 +71,7 @@ export function ValueStack() {
                 $499 upfront + $49/week ongoing
               </p>
               <p className="text-sm text-white/75">
-                The weekly service is tied to the launch package so your website keeps improving after it goes live.
+                $49/week is tied to the launch package so your website keeps improving after go-live.
               </p>
             </CardHeader>
             <CardContent className="grid gap-4 md:grid-cols-2">
@@ -95,6 +94,17 @@ export function ValueStack() {
                   <h4 className="font-medium">Managed Hosting and Support</h4>
                   <p className="text-sm text-white/80">
                     Hosting, AI support, and ongoing updates managed by our team each week.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-secondary">
+                  <Check className="h-4 w-4 text-foreground" />
+                </div>
+                <div>
+                  <h4 className="font-medium">Direct Phone Access</h4>
+                  <p className="text-sm text-white/80">
+                    Direct phone support for AI questions, navigation help, and quick troubleshooting.
                   </p>
                 </div>
               </div>

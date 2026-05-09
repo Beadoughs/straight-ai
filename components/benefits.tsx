@@ -32,8 +32,8 @@ const benefits = [
 
 export function Benefits() {
   return (
-    <section id="why" className="py-10 md:py-14">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="why" className="bg-gradient-to-b from-[#141414] to-[#171717] py-0">
+      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,8 +44,8 @@ export function Benefits() {
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             Why Business Owners Choose Straight AI
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-white/85 md:text-lg">
-            Focus on growing your business while we handle your online presence
+          <p className="mx-auto mt-3 max-w-2xl text-white/85 md:text-lg">
+            Focus on growth while we handle delivery.
           </p>
         </motion.div>
 

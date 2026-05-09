@@ -7,13 +7,13 @@ import { trackEvent } from "@/lib/analytics";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-34 pb-8 md:pt-32 md:pb-14">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#060606] to-[#0d0d0d] pt-34 pb-0 md:pt-32">
       {/* Background gradient */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-accent/10 blur-3xl" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-6 pb-10 md:pb-12">
         <div className="flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -31,11 +31,11 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="max-w-4xl text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl"
           >
-            Conversion-Focused Websites{" "}
+            AI-Optimized Websites{" "}
             <span className="text-white">
               Built to Convert.
             </span>{" "}
-            Designed to Outperform.
+            Built to Lead.
           </motion.h1>
 
           <motion.p
@@ -44,9 +44,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-4 max-w-3xl text-base text-white/90 sm:text-lg md:text-xl"
           >
-            We relaunch your site with modern UX, SEO-ready structure, and conversion-first
-            messaging, then manage hosting, updates, and AI support so you keep market
-            momentum without adding operational load.
+            We relaunch your site for visibility, trust, and lead flow, then manage hosting,
+            updates, and AI support so your team stays focused on growth.
           </motion.p>
 
           <motion.div
@@ -94,7 +93,7 @@ export function Hero() {
             whileHover={{ y: -3 }}
             className="mt-5 rounded-xl border border-white/15 bg-gradient-to-r from-white/10 to-white/5 px-5 py-3 text-sm text-white/90 shadow-[0_8px_24px_rgba(255,255,255,0.06)]"
           >
-            Built by business owners for growth-focused business owners.
+            Built by business owners, for business owners.
           </motion.div>
         </div>
       </div>

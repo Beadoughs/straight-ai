@@ -7,14 +7,14 @@ import { trackEvent } from "@/lib/analytics";
 
 export function PricingCTA() {
   return (
-    <section className="py-10 md:py-14">
-      <div className="mx-auto max-w-6xl px-6">
+    <section className="bg-gradient-to-b from-[#1f1f1f] to-[#242424] py-0">
+      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative overflow-hidden rounded-3xl border border-border/60 bg-gradient-to-br from-card via-card to-secondary/30 p-8 md:p-12 lg:p-16"
+          className="relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-[#2a2a2a] via-[#222222] to-[#1b1b1b] p-8 md:p-12 lg:p-16"
         >
           {/* Background decoration */}
           <div className="pointer-events-none absolute top-0 right-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
@@ -26,13 +26,13 @@ export function PricingCTA() {
             </div>
 
             <h2 className="max-w-3xl text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-              Less than the Cost of a Freelancer.
+              Premium Website Delivery.
               <br />
-              <span className="text-accent">Faster than an Agency.</span>
+              <span className="text-white">Agency-level execution.</span>
             </h2>
 
-            <p className="mt-6 max-w-2xl text-lg text-white/85">
-              Built for owners who need a sharper online presence now, with ongoing weekly support to keep performance strong.
+            <p className="mt-5 max-w-2xl text-lg text-white/85">
+              Fast launch, managed weekly support, clear outcomes.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-6">

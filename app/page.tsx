@@ -4,7 +4,6 @@ import { ValueStack } from "@/components/value-stack";
 import { HowItWorks } from "@/components/how-it-works";
 import { Benefits } from "@/components/benefits";
 import { Comparison } from "@/components/comparison";
-import { Testimonials } from "@/components/testimonials";
 import { PricingCTA } from "@/components/pricing-cta";
 import { FinalCTA } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
@@ -53,7 +52,6 @@ export default function Home() {
       <Benefits />
       <Comparison />
       <WorkedWith />
-      <Testimonials />
       <PricingCTA />
       <FinalCTA />
       <Footer />
