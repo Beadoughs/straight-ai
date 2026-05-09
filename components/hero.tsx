@@ -9,34 +9,19 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#060606] to-[#0d0d0d] pt-34 pb-0 md:pt-32">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#060606] to-[#0d0d0d] pt-32 pb-0 md:pt-28">
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         {reduceMotion ? (
           <div className="absolute top-0 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-white/[0.06] blur-3xl" />
         ) : (
           <>
+            {/* Static blurs + light opacity drift only — animating large blurs scales poorly and reads as “glitchy” */}
+            <div className="absolute -top-20 left-[10%] h-[min(420px,50vw)] w-[min(420px,50vw)] rounded-full bg-white/[0.07] blur-3xl" />
+            <div className="absolute top-32 right-[-5%] h-[min(380px,45vw)] w-[min(380px,45vw)] rounded-full bg-white/[0.05] blur-3xl" />
             <motion.div
-              className="absolute -top-20 left-[10%] h-[min(420px,50vw)] w-[min(420px,50vw)] rounded-full bg-white/[0.09] blur-3xl"
-              animate={{
-                x: [0, 40, 0],
-                y: [0, -28, 0],
-                scale: [1, 1.12, 1],
-              }}
-              transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="absolute top-32 right-[-5%] h-[min(380px,45vw)] w-[min(380px,45vw)] rounded-full bg-white/[0.06] blur-3xl"
-              animate={{
-                x: [0, -36, 0],
-                y: [0, 24, 0],
-                scale: [1, 1.08, 1],
-              }}
-              transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            />
-            <motion.div
-              className="absolute bottom-0 left-1/2 h-[min(360px,40vw)] w-[min(700px,90vw)] -translate-x-1/2 rounded-full bg-white/[0.05] blur-3xl"
-              animate={{ opacity: [0.5, 0.85, 0.5] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute bottom-0 left-1/2 h-[min(360px,40vw)] w-[min(700px,90vw)] -translate-x-1/2 rounded-full bg-white/[0.04] blur-3xl"
+              animate={{ opacity: [0.45, 0.65, 0.45] }}
+              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
             />
           </>
         )}

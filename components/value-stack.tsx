@@ -63,19 +63,8 @@ export function ValueStack() {
           className="mt-8 space-y-6"
         >
           <motion.div
-            whileHover={reduceMotion ? { y: -4 } : { y: -6 }}
-            animate={
-              reduceMotion
-                ? undefined
-                : {
-                    boxShadow: [
-                      "0 14px 40px rgba(255,255,255,0.08)",
-                      "0 22px 56px rgba(255,255,255,0.16)",
-                      "0 14px 40px rgba(255,255,255,0.08)",
-                    ],
-                  }
-            }
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            whileHover={reduceMotion ? undefined : { y: -4 }}
+            transition={{ duration: 0.2 }}
             className="rounded-2xl"
           >
             <Card className="relative overflow-hidden rounded-2xl border-white/25 bg-gradient-to-br from-white/12 via-white/6 to-transparent shadow-[0_14px_40px_rgba(255,255,255,0.08)] backdrop-blur-md transition-shadow duration-200 hover:shadow-[0_18px_48px_rgba(255,255,255,0.14)]">
