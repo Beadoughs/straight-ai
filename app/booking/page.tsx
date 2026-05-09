@@ -27,6 +27,19 @@ export default function BookingPage() {
     return `${baseCalendlyUrl}${separator}hide_gdpr_banner=1`;
   }, [baseCalendlyUrl]);
 
+  const intakeSummary = useMemo(
+    () =>
+      [
+        `Business type: ${formData.businessType}`,
+        `Website/social: ${formData.websiteUrl}`,
+        `Main goal: ${formData.goal}`,
+        `Budget: ${formData.budget}`,
+        `Timeline: ${formData.timeline}`,
+        `Pricing confirmed: ${formData.fitConfirmed ? "yes" : "no"}`,
+      ].join(" | "),
+    [formData],
+  );
+
   useEffect(() => {
     trackEvent("booking_page_view");
   }, []);
@@ -221,9 +234,11 @@ export default function BookingPage() {
                 lastName: formData.name.split(" ").slice(1).join(" "),
                 name: formData.name,
                 customAnswers: {
-                  a1: formData.businessType,
-                  a2: `${formData.goal} | Website: ${formData.websiteUrl}`,
-                  a3: `${formData.budget} | ${formData.timeline} | Pricing confirmed: ${formData.fitConfirmed ? "yes" : "no"}`,
+                  // Calendly only keeps answers for custom question slots configured in the event type.
+                  // Put all intake data in a1 so details always come through.
+                  a1: intakeSummary,
+                  a2: formData.goal,
+                  a3: formData.budget,
                 },
               }}
             />
