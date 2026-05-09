@@ -5,10 +5,11 @@ import { InlineWidget } from "react-calendly";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { trackEvent } from "@/lib/analytics";
-import { CheckCircle2 } from "lucide-react";
 
 export default function BookingPage() {
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
+  const calendlyUrl =
+    process.env.NEXT_PUBLIC_CALENDLY_URL ||
+    "https://calendly.com/straightai/30min";
 
   useEffect(() => {
     trackEvent("booking_page_view");
@@ -56,34 +57,16 @@ export default function BookingPage() {
         </div>
 
         <div className="h-[700px] w-full rounded-xl overflow-hidden border border-border/60 bg-card/30">
-          {calendlyUrl ? (
-            <InlineWidget
-              url={calendlyUrl}
-              styles={{ height: "100%", width: "100%" }}
-              prefill={{
-                email: "",
-                firstName: "",
-                lastName: "",
-                name: "",
-              }}
-            />
-          ) : (
-            <div className="flex h-full items-center justify-center px-6 text-center text-muted-foreground">
-              <div className="max-w-md">
-                <div className="mb-3 flex items-center justify-center gap-2 text-foreground">
-                  <CheckCircle2 className="h-4 w-4 text-accent" />
-                  <p className="font-medium">Booking is temporarily unavailable.</p>
-                </div>
-                <p>
-                  Set
-                  <code className="mx-1 rounded bg-muted px-1 py-0.5 text-foreground">
-                    NEXT_PUBLIC_CALENDLY_URL
-                  </code>
-                  in your .env.local file to enable scheduling.
-                </p>
-              </div>
-            </div>
-          )}
+          <InlineWidget
+            url={calendlyUrl}
+            styles={{ height: "100%", width: "100%" }}
+            prefill={{
+              email: "",
+              firstName: "",
+              lastName: "",
+              name: "",
+            }}
+          />
         </div>
       </div>
 
