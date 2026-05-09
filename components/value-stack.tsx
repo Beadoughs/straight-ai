@@ -77,7 +77,7 @@ const itemVariants = {
 
 export function ValueStack() {
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -95,7 +95,7 @@ export function ValueStack() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-2">
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
           {/* Launch Package */}
           <motion.div
             variants={containerVariants}
@@ -111,7 +111,7 @@ export function ValueStack() {
                     Launch Package
                   </CardTitle>
                   <div className="text-right">
-                    <span className="text-3xl font-bold">$299</span>
+                    <span className="text-3xl font-bold">$499</span>
                     <span className="text-sm text-muted-foreground">
                       {" "}
                       one-time
@@ -164,7 +164,7 @@ export function ValueStack() {
                     </span>
                   </div>
                   <div className="text-right">
-                    <span className="text-3xl font-bold">$35</span>
+                    <span className="text-3xl font-bold">$49</span>
                     <span className="text-sm text-muted-foreground">/week</span>
                   </div>
                 </div>
@@ -201,12 +201,12 @@ export function ValueStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 rounded-2xl border border-border/60 bg-card/30 p-6 backdrop-blur-sm md:p-8"
+          className="mt-10 rounded-2xl border border-border/60 bg-card/30 p-6 backdrop-blur-sm md:p-8"
         >
           <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
             <div>
               <h3 className="text-xl font-semibold">
-                Launch your website for $299. Then scale with AI for $35/week.
+                Launch your website for $499. Then scale with AI for $49/week.
               </h3>
               <div className="mt-3 flex flex-wrap gap-4 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1.5">
@@ -220,6 +220,21 @@ export function ValueStack() {
                 <span className="flex items-center gap-1.5">
                   <Check className="h-4 w-4 text-accent" />
                   Full ownership
+                </span>
+              </div>
+              <div className="mt-4 grid gap-2 text-sm text-muted-foreground">
+                <p className="font-medium text-foreground">What $49/week includes:</p>
+                <span className="flex items-center gap-1.5">
+                  <Check className="h-4 w-4 text-accent" />
+                  Secure hosting + uptime monitoring
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Check className="h-4 w-4 text-accent" />
+                  24/7 AI chatbot lead capture
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Check className="h-4 w-4 text-accent" />
+                  Ongoing updates and monthly performance report
                 </span>
               </div>
             </div>

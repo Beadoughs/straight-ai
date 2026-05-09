@@ -3,10 +3,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export function PricingCTA() {
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,14 +37,14 @@ export function PricingCTA() {
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
               <div className="rounded-xl bg-secondary/50 px-5 py-3 text-center">
-                <p className="text-2xl font-bold">$299</p>
+                <p className="text-2xl font-bold">$499</p>
                 <p className="text-sm text-muted-foreground">
                   to launch
                 </p>
               </div>
               <span className="text-2xl text-muted-foreground">+</span>
               <div className="rounded-xl bg-accent/10 px-5 py-3 text-center">
-                <p className="text-2xl font-bold text-accent">$35/week</p>
+                <p className="text-2xl font-bold text-accent">$49/week</p>
                 <p className="text-sm text-muted-foreground">
                   for AI Chatbot & Hosting
                 </p>
@@ -52,8 +53,11 @@ export function PricingCTA() {
 
             <div className="mt-10 space-y-4">
               <Button asChild size="lg" className="group h-12 px-8 text-base font-medium">
-                <a href="/booking">
-                  Get Your Free Custom Mockup
+                <a
+                  href="/booking"
+                  onClick={() => trackEvent("cta_click", { location: "pricing_section" })}
+                >
+                  Book Free Mockup
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
@@ -63,7 +67,7 @@ export function PricingCTA() {
                   🛡️ 100% Risk-Free Guarantee
                 </p>
                 <p className="text-xs text-muted-foreground max-w-sm">
-                  Love your initial design, or we'll refund your $299. No questions asked.
+                  Love your initial design, or we'll refund your $499. No questions asked.
                 </p>
                 <div className="mt-2 inline-flex items-center rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent">
                   Only 5 spots available per month

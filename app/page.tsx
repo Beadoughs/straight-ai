@@ -8,6 +8,7 @@ import { Testimonials } from "@/components/testimonials";
 import { PricingCTA } from "@/components/pricing-cta";
 import { FinalCTA } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
+import { MobileStickyCTA } from "@/components/mobile-sticky-cta";
 
 export default function Home() {
   return (
@@ -22,6 +23,8 @@ export default function Home() {
       <PricingCTA />
       <FinalCTA />
       <Footer />
+      <div className="h-20 md:hidden" />
+      <MobileStickyCTA />
     </main>
   );
 }

@@ -3,10 +3,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot, Zap, Globe } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
+    <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
       {/* Background gradient */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-accent/10 blur-3xl" />
@@ -32,9 +33,9 @@ export function Hero() {
           >
             Premium Websites.{" "}
             <span className="bg-gradient-to-r from-accent to-accent/60 bg-clip-text text-transparent">
-              Built for You.
+              Built to Convert.
             </span>{" "}
-            Powered by Straight AI.
+            Live in Days.
           </motion.h1>
 
           <motion.p
@@ -43,9 +44,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
           >
-            Get a fully custom, mobile-responsive website without any tech
-            skills. Our team handles everything—design, development, hosting, and
-            ongoing management.
+            We design and launch your custom site fast, then manage hosting and
+            AI support for you.
           </motion.p>
 
           <motion.div
@@ -57,7 +57,7 @@ export function Hero() {
             <div className="rounded-xl border border-border/60 bg-card/50 px-6 py-3 backdrop-blur-sm">
               <p className="text-sm text-muted-foreground">Launch for</p>
               <p className="text-2xl font-bold tracking-tight">
-                $299{" "}
+                $499{" "}
                 <span className="text-base font-normal text-muted-foreground">
                   one-time
                 </span>
@@ -67,7 +67,7 @@ export function Hero() {
             <div className="rounded-xl border border-border/60 bg-card/50 px-6 py-3 backdrop-blur-sm">
               <p className="text-sm text-muted-foreground">Host & AI Chatbot for</p>
               <p className="text-2xl font-bold tracking-tight">
-                $35
+                $49
                 <span className="text-base font-normal text-muted-foreground">
                   /week
                 </span>
@@ -82,11 +82,23 @@ export function Hero() {
             className="mt-10"
           >
             <Button asChild size="lg" className="group h-12 px-8 text-base font-medium">
-              <a href="/booking">
-                Get a Free Custom Mockup
+              <a
+                href="/booking"
+                onClick={() => trackEvent("cta_click", { location: "hero_primary" })}
+              >
+                Book Free Mockup
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+            className="mt-5 rounded-xl border border-border/60 bg-card/50 px-5 py-3 text-sm text-muted-foreground"
+          >
+            Trusted by 200+ business owners • 5-star client feedback • Results-focused delivery
           </motion.div>
 
           {/* Hero visual */}
@@ -94,7 +106,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-16 w-full max-w-4xl"
+            className="mt-12 w-full max-w-4xl"
           >
             <div className="relative rounded-2xl border border-border/60 bg-card/30 p-2 backdrop-blur-sm">
               <div className="rounded-xl bg-gradient-to-br from-secondary to-secondary/50 p-8 md:p-12">

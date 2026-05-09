@@ -34,18 +34,18 @@ const diy = [
 ];
 
 const straightAi = [
-  "$299",
+  "$499",
   "Days, not months",
   true,
   true,
   true,
-  "Included in $35/week",
+  "Included in $49/week",
   "Included",
 ];
 
 export function Comparison() {
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
