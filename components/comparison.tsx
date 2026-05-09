@@ -48,17 +48,17 @@ export function Comparison() {
     <section className="bg-gradient-to-b from-[#171717] to-[#1a1a1a] py-0">
       <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.55 }}
           className="mb-10 text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl text-white">
             Where Straight AI Gives You a Competitive Edge
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-white/85 md:text-lg">
-            A faster path to a modern, high-converting website.
+          <p className="mx-auto mt-3 max-w-2xl text-white/90 md:text-lg">
+            See how Straight AI compares to traditional agencies and DIY builders.
           </p>
         </motion.div>
 
@@ -96,7 +96,7 @@ export function Comparison() {
                     
                     <td className="bg-white/10 p-6 font-medium text-white">
                       {typeof straightAi[i] === "boolean" ? (
-                        straightAi[i] ? <Check className="h-5 w-5 text-white" /> : <X className="h-5 w-5 text-red-300" />
+                        straightAi[i] ? <Check className="h-5 w-5 text-green-500" /> : <X className="h-5 w-5 text-red-300" />
                       ) : (
                         straightAi[i]
                       )}

@@ -32,16 +32,16 @@ export function HowItWorks() {
     <section className="bg-gradient-to-b from-[#111111] to-[#141414] py-0">
       <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.55 }}
           className="text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             How It Works
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-white/85 md:text-lg">
+          <p className="mx-auto mt-3 max-w-2xl text-white/90 md:text-lg">
             Three clear steps to launch.
           </p>
         </motion.div>
@@ -50,10 +50,10 @@ export function HowItWorks() {
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.55, delay: index * 0.12 }}
               className="group relative"
             >
               {/* Connector line */}
@@ -63,15 +63,15 @@ export function HowItWorks() {
 
               <div className="relative rounded-2xl border border-border/60 bg-card/50 p-6 backdrop-blur-sm transition-colors hover:border-accent/30">
                 <div className="mb-4 flex items-center justify-between">
-                  <span className="text-5xl font-bold text-muted-foreground/20">
+                  <span className="text-5xl font-bold text-white/15">
                     {step.number}
                   </span>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 transition-colors group-hover:bg-accent/20">
-                    <step.icon className="h-6 w-6 text-accent" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-colors group-hover:border-emerald-400/40 group-hover:bg-emerald-400/10">
+                    <step.icon className="h-6 w-6 text-white transition-colors group-hover:text-emerald-400" />
                   </div>
                 </div>
-                <h3 className="mb-2 text-xl font-semibold">{step.title}</h3>
-                <p className="text-white/80">{step.description}</p>
+                <h3 className="mb-2 text-xl font-semibold text-white">{step.title}</h3>
+                <p className="text-white/90">{step.description}</p>
               </div>
             </motion.div>
           ))}

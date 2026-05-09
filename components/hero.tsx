@@ -1,16 +1,45 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 export function Hero() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#060606] to-[#0d0d0d] pt-34 pb-0 md:pt-32">
-      {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-accent/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        {reduceMotion ? (
+          <div className="absolute top-0 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-white/[0.06] blur-3xl" />
+        ) : (
+          <>
+            <motion.div
+              className="absolute -top-20 left-[10%] h-[min(420px,50vw)] w-[min(420px,50vw)] rounded-full bg-white/[0.09] blur-3xl"
+              animate={{
+                x: [0, 40, 0],
+                y: [0, -28, 0],
+                scale: [1, 1.12, 1],
+              }}
+              transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="absolute top-32 right-[-5%] h-[min(380px,45vw)] w-[min(380px,45vw)] rounded-full bg-white/[0.06] blur-3xl"
+              animate={{
+                x: [0, -36, 0],
+                y: [0, 24, 0],
+                scale: [1, 1.08, 1],
+              }}
+              transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            />
+            <motion.div
+              className="absolute bottom-0 left-1/2 h-[min(360px,40vw)] w-[min(700px,90vw)] -translate-x-1/2 rounded-full bg-white/[0.05] blur-3xl"
+              animate={{ opacity: [0.5, 0.85, 0.5] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </>
+        )}
       </div>
 
       <div className="mx-auto max-w-6xl px-6 pb-10 md:pb-12">
@@ -21,7 +50,7 @@ export function Hero() {
             transition={{ duration: 0.5 }}
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/60 bg-secondary/50 px-4 py-1.5 text-sm text-white/90"
           >
-            <Zap className="h-3.5 w-3.5 text-accent" />
+            <Zap className="h-3.5 w-3.5 text-white" />
             <span>Premium Website Development</span>
           </motion.div>
 
@@ -59,10 +88,10 @@ export function Hero() {
               transition={{ duration: 0.2 }}
               className="rounded-xl border border-white/20 bg-gradient-to-br from-white/12 to-white/5 px-5 py-2.5 shadow-[0_10px_30px_rgba(255,255,255,0.08)] backdrop-blur-sm"
             >
-              <p className="text-sm text-white/80">Website package</p>
+              <p className="text-sm text-white/90">Website package</p>
               <p className="text-2xl font-bold tracking-tight">
                 $499 + $49
-                <span className="text-base font-normal text-white/80">
+                <span className="text-base font-normal text-white/90">
                   /week
                 </span>
               </p>
@@ -86,15 +115,14 @@ export function Hero() {
             </Button>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.45 }}
-            whileHover={{ y: -3 }}
-            className="mt-5 rounded-xl border border-white/15 bg-gradient-to-r from-white/10 to-white/5 px-5 py-3 text-sm text-white/90 shadow-[0_8px_24px_rgba(255,255,255,0.06)]"
+            className="mt-5 text-sm font-medium tracking-wide text-white/90"
           >
             Built by business owners, for business owners.
-          </motion.div>
+          </motion.p>
         </div>
       </div>
     </section>

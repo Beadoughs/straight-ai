@@ -4,21 +4,21 @@ import { motion } from "framer-motion";
 
 export function WorkedWith() {
   return (
-    <section id="work" className="bg-gradient-to-b from-[#0f172a] to-[#111827] py-0">
+    <section id="work" className="bg-gradient-to-b from-[#1a1a1a] to-[#141414] py-0">
       <div className="mx-auto max-w-5xl px-6 py-8 md:py-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.55 }}
           whileHover={{ y: -2 }}
-          className="relative rounded-2xl border border-[#93c5fd]/20 bg-gradient-to-br from-[#15244a] via-[#142445] to-[#101a33] p-4 shadow-[0_10px_24px_rgba(2,6,23,0.3)] backdrop-blur-sm transition-shadow duration-200 hover:shadow-[0_14px_28px_rgba(15,23,42,0.35)] md:p-5"
+          className="relative rounded-2xl border border-white/12 bg-gradient-to-br from-[#252525] via-[#1c1c1c] to-[#121212] p-4 shadow-[0_10px_24px_rgba(0,0,0,0.45)] backdrop-blur-sm transition-shadow duration-200 hover:shadow-[0_14px_28px_rgba(0,0,0,0.55)] md:p-5"
         >
-          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[linear-gradient(120deg,rgba(147,197,253,0.08),transparent_45%)]" />
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#dbeafe]/90 md:text-sm">
+          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[linear-gradient(120deg,rgba(255,255,255,0.06),transparent_45%)]" />
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/90 md:text-sm">
             Our Work
           </p>
-          <div className="mt-3 overflow-hidden rounded-xl border border-[#93c5fd]/25 bg-[#0b1220]/65">
+          <div className="mt-3 w-full overflow-hidden rounded-xl border border-white/12 bg-black/40 md:mx-auto md:w-1/2">
             <video
               autoPlay
               loop

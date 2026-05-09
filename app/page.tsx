@@ -4,7 +4,6 @@ import { ValueStack } from "@/components/value-stack";
 import { HowItWorks } from "@/components/how-it-works";
 import { Benefits } from "@/components/benefits";
 import { Comparison } from "@/components/comparison";
-import { PricingCTA } from "@/components/pricing-cta";
 import { FinalCTA } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
 import { MobileStickyCTA } from "@/components/mobile-sticky-cta";
@@ -52,7 +51,6 @@ export default function Home() {
       <Benefits />
       <Comparison />
       <WorkedWith />
-      <PricingCTA />
       <FinalCTA />
       <Footer />
       <div className="h-24 md:hidden" />
