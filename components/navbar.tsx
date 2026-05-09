@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Sparkles } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 export function Navbar() {
@@ -15,12 +15,14 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 md:px-6">
         <a href="/" className="flex items-center gap-2" aria-label="Go to homepage">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-black">
-            <Sparkles className="h-4 w-4 text-white" />
-          </div>
-          <span className="text-base font-semibold tracking-tight text-black md:text-lg">
-            Straight AI
-          </span>
+          <Image
+            src="/sa-logo.png"
+            alt="Straight AI"
+            width={110}
+            height={34}
+            className="h-8 w-auto object-contain"
+            priority
+          />
         </a>
         <nav className="hidden items-center gap-4 text-sm text-black/85 md:flex">
           <a href="#offer" className="hover:text-black">Offer</a>

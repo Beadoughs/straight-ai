@@ -15,7 +15,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Straight AI",
   url: "https://straight-ai.com",
-  logo: "https://straight-ai.com/icon.svg",
+  logo: "https://straight-ai.com/sa-logo.png",
   description:
     "Straight AI helps business owners launch and manage AI-optimized websites built for visibility and conversion.",
 };
