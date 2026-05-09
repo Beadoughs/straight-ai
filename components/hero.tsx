@@ -29,13 +29,13 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="max-w-4xl text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-6xl lg:text-7xl"
+            className="max-w-4xl text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl"
           >
-            AI-Optimized Websites{" "}
+            Conversion-Focused Websites{" "}
             <span className="text-white">
               Built to Convert.
             </span>{" "}
-            Built to Keep You Relevant.
+            Designed to Outperform.
           </motion.h1>
 
           <motion.p
@@ -44,9 +44,9 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-4 max-w-3xl text-base text-white/90 sm:text-lg md:text-xl"
           >
-            For business owners ready to upgrade or relaunch, we build a modern site
-            fast, then handle hosting, updates, and AI support so you stay ahead of competitors
-            and easier to find online.
+            We relaunch your site with modern UX, SEO-ready structure, and conversion-first
+            messaging, then manage hosting, updates, and AI support so you keep market
+            momentum without adding operational load.
           </motion.p>
 
           <motion.div
@@ -55,7 +55,11 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-6 flex flex-col items-center gap-3 sm:flex-row"
           >
-            <div className="rounded-xl border border-border/60 bg-card/50 px-5 py-2.5 backdrop-blur-sm">
+            <motion.div
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="rounded-xl border border-white/20 bg-gradient-to-br from-white/12 to-white/5 px-5 py-2.5 shadow-[0_10px_30px_rgba(255,255,255,0.08)] backdrop-blur-sm"
+            >
               <p className="text-sm text-white/80">Website package</p>
               <p className="text-2xl font-bold tracking-tight">
                 $499 + $49
@@ -63,7 +67,7 @@ export function Hero() {
                   /week
                 </span>
               </p>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -87,9 +91,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.45 }}
-            className="mt-5 rounded-xl border border-border/60 bg-card/50 px-5 py-3 text-sm text-white/85"
+            whileHover={{ y: -3 }}
+            className="mt-5 rounded-xl border border-white/15 bg-gradient-to-r from-white/10 to-white/5 px-5 py-3 text-sm text-white/90 shadow-[0_8px_24px_rgba(255,255,255,0.06)]"
           >
-            Built by business owners, for business owners.
+            Built by business owners for growth-focused business owners.
           </motion.div>
         </div>
       </div>

@@ -55,7 +55,7 @@ export function Comparison() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Why We're Better
+            Why Our AI-Optimized Websites Perform Better
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-white/85 md:text-lg">
             See how Straight AI compares to traditional agencies and DIY builders.

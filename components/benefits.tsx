@@ -42,7 +42,7 @@ export function Benefits() {
           className="text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Why Choose Straight AI?
+            Why Business Owners Choose Straight AI
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-white/85 md:text-lg">
             Focus on growing your business while we handle your online presence

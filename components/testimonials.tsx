@@ -6,24 +6,24 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "Founder, Bloom Studio",
+    name: "Private Client",
+    role: "Service Business Owner",
     content:
-      "I had my website up and running in 3 days. The AI chatbot has already captured dozens of leads I would have missed.",
+      "Straight AI moved quickly, kept communication simple, and gave us a site that feels current and easy to scale.",
     rating: 5,
   },
   {
-    name: "Marcus Johnson",
-    role: "Owner, MJ Consulting",
+    name: "Private Client",
+    role: "Local Business Owner",
     content:
-      "Best investment I&apos;ve made for my business. The weekly management fee is nothing compared to what I was paying my old developer.",
+      "They were reliable from first call to launch and stayed accessible whenever we needed updates or advice.",
     rating: 5,
   },
   {
-    name: "Emily Rodriguez",
-    role: "CEO, GreenPath Solutions",
+    name: "Private Client",
+    role: "Founder",
     content:
-      "Professional, fast, and affordable. Straight AI delivered exactly what they promised—and more.",
+      "What stood out was how practical they are: fast delivery, clear recommendations, and no technical overwhelm.",
     rating: 5,
   },
 ];

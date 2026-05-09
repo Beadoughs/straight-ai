@@ -20,8 +20,8 @@ export function FinalCTA() {
             Ready to Launch Your Website?
           </h2>
           <p className="mt-6 max-w-2xl text-lg text-white/85">
-            Book a free website consult and walk away with clear next steps to
-            upgrade your online presence.
+            Book your free consult to get a clear action plan for upgrading your site,
+            improving visibility, and converting more traffic.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">

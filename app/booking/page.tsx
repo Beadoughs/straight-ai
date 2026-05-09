@@ -15,9 +15,11 @@ export default function BookingPage() {
     name: "",
     email: "",
     businessType: "",
+    websiteUrl: "",
     goal: "",
     budget: "",
     timeline: "",
+    fitConfirmed: false,
   });
 
   const calendlyUrl = useMemo(() => {
@@ -124,6 +126,21 @@ export default function BookingPage() {
                 />
               </label>
               <label className="grid gap-2 text-sm">
+                Current website (or social page)
+                <input
+                  className="h-11 rounded-md border border-input bg-background px-3 text-foreground"
+                  placeholder="https://yourbusiness.com"
+                  required
+                  value={formData.websiteUrl}
+                  onChange={(e) =>
+                    setFormData((current) => ({
+                      ...current,
+                      websiteUrl: e.target.value,
+                    }))
+                  }
+                />
+              </label>
+              <label className="grid gap-2 text-sm">
                 Budget
                 <select
                   className="h-11 rounded-md border border-input bg-background px-3 text-foreground"
@@ -162,6 +179,24 @@ export default function BookingPage() {
                   }
                 />
               </label>
+              <label className="md:col-span-2 flex items-start gap-3 rounded-lg border border-border/60 bg-card/50 p-3 text-sm">
+                <input
+                  type="checkbox"
+                  className="mt-0.5 h-4 w-4"
+                  required
+                  checked={formData.fitConfirmed}
+                  onChange={(e) =>
+                    setFormData((current) => ({
+                      ...current,
+                      fitConfirmed: e.target.checked,
+                    }))
+                  }
+                />
+                <span className="text-white/85">
+                  I understand package pricing starts at <strong>$499 + $49/week</strong> and
+                  this consult is focused on planning the right scope for my business.
+                </span>
+              </label>
               <button
                 type="submit"
                 className="md:col-span-2 inline-flex h-11 items-center justify-center rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground"
@@ -187,8 +222,8 @@ export default function BookingPage() {
                 name: formData.name,
                 customAnswers: {
                   a1: formData.businessType,
-                  a2: formData.goal,
-                  a3: `${formData.budget} | ${formData.timeline}`,
+                  a2: `${formData.goal} | Website: ${formData.websiteUrl}`,
+                  a3: `${formData.budget} | ${formData.timeline} | Pricing confirmed: ${formData.fitConfirmed ? "yes" : "no"}`,
                 },
               }}
             />

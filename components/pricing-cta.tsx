@@ -32,7 +32,7 @@ export function PricingCTA() {
             </h2>
 
             <p className="mt-6 max-w-2xl text-lg text-white/85">
-              For business owners who want to stay competitive online, we build and manage a modern website that keeps your brand relevant.
+              Built for owners who need a sharper online presence now, with ongoing weekly support to keep performance strong.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
@@ -67,7 +67,7 @@ export function PricingCTA() {
                   🛡️ 100% Risk-Free Guarantee
                 </p>
                 <p className="text-xs text-white/80 max-w-sm">
-                  Love your initial design, or we'll refund your $499. No questions asked.
+                  If the first direction misses the mark, we refund your $499. No lock-in.
                 </p>
                 <div className="mt-2 inline-flex items-center rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent">
                   Only 5 spots available per month

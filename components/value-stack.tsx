@@ -58,10 +58,12 @@ export function ValueStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
+          whileHover={{ y: -4 }}
           className="mt-8"
         >
-          <Card className="relative overflow-hidden border-accent/30 bg-card/50 backdrop-blur-sm">
-            <div className="absolute top-0 right-0 h-36 w-36 -translate-y-1/2 translate-x-1/2 rounded-full bg-accent/20 blur-3xl" />
+          <Card className="relative overflow-hidden border-white/20 bg-gradient-to-br from-white/12 via-white/6 to-transparent shadow-[0_14px_40px_rgba(255,255,255,0.08)] backdrop-blur-md transition-shadow duration-200 hover:shadow-[0_18px_48px_rgba(255,255,255,0.12)]">
+            <div className="absolute top-0 right-0 h-36 w-36 -translate-y-1/2 translate-x-1/2 rounded-full bg-white/15 blur-3xl" />
+            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.12),transparent_45%)] pointer-events-none" />
             <CardHeader className="pb-4">
               <CardTitle className="text-2xl font-semibold">
                 Website Package

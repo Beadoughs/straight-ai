@@ -12,8 +12,10 @@ export function WorkedWith() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="rounded-2xl border border-border/60 bg-card/40 p-6 md:p-8"
+          whileHover={{ y: -4 }}
+          className="relative rounded-2xl border border-white/20 bg-gradient-to-br from-white/12 via-white/6 to-transparent p-6 shadow-[0_14px_40px_rgba(255,255,255,0.08)] backdrop-blur-md transition-shadow duration-200 hover:shadow-[0_18px_48px_rgba(255,255,255,0.12)] md:p-8"
         >
+          <div className="absolute inset-0 rounded-2xl bg-[linear-gradient(120deg,rgba(255,255,255,0.12),transparent_50%)] pointer-events-none" />
           <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
             Who we have worked with
           </p>
@@ -36,10 +38,10 @@ export function WorkedWith() {
                 Beadoughs
               </p>
               <p className="mt-2 text-white/85">
-                &quot;Working with Straight AI felt easy from day one. They moved fast,
-                delivered exactly when they said they would, and stayed available whenever
-                we needed practical advice around AI and website performance. We trust
-                their team because they explain things clearly and back it up with action.&quot;
+                &quot;The Straight AI team delivered quickly, stayed reliable through the whole
+                build, and made every update easy to action. When we needed clarity around
+                AI and website performance, they were accessible, practical, and easy to
+                trust.&quot;
               </p>
             </div>
           </div>
