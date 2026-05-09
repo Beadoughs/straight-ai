@@ -7,7 +7,7 @@ import { trackEvent } from "@/lib/analytics";
 
 export function PricingCTA() {
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-10 md:py-14">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -31,22 +31,22 @@ export function PricingCTA() {
               <span className="text-accent">Faster than an Agency.</span>
             </h2>
 
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Stop waiting months and spending thousands. Get a premium website built by our experts, complete with 24/7 AI Chatbot customer service.
+            <p className="mt-6 max-w-2xl text-lg text-white/85">
+              For business owners who want to stay competitive online, we build and manage a modern website that keeps your brand relevant.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
               <div className="rounded-xl bg-secondary/50 px-5 py-3 text-center">
                 <p className="text-2xl font-bold">$499</p>
-                <p className="text-sm text-muted-foreground">
-                  to launch
+                <p className="text-sm text-white/80">
+                  website package starts at
                 </p>
               </div>
-              <span className="text-2xl text-muted-foreground">+</span>
+              <span className="text-2xl text-white/80">+</span>
               <div className="rounded-xl bg-accent/10 px-5 py-3 text-center">
                 <p className="text-2xl font-bold text-accent">$49/week</p>
-                <p className="text-sm text-muted-foreground">
-                  for AI Chatbot & Hosting
+                <p className="text-sm text-white/80">
+                  ongoing management
                 </p>
               </div>
             </div>
@@ -57,7 +57,7 @@ export function PricingCTA() {
                   href="/booking"
                   onClick={() => trackEvent("cta_click", { location: "pricing_section" })}
                 >
-                  Book Free Mockup
+                  Book Free Website Consult
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
@@ -66,7 +66,7 @@ export function PricingCTA() {
                 <p className="text-sm font-medium text-foreground">
                   🛡️ 100% Risk-Free Guarantee
                 </p>
-                <p className="text-xs text-muted-foreground max-w-sm">
+                <p className="text-xs text-white/80 max-w-sm">
                   Love your initial design, or we'll refund your $499. No questions asked.
                 </p>
                 <div className="mt-2 inline-flex items-center rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent">

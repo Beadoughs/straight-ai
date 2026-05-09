@@ -30,7 +30,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="bg-secondary/30 py-16 md:py-24">
+    <section className="bg-secondary/30 py-10 md:py-14">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,10 +40,10 @@ export function Testimonials() {
           className="text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Trusted by Business Owners
+            Built by Business Owners for Business Owners
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
-            Join hundreds of entrepreneurs who launched their websites with us
+          <p className="mx-auto mt-4 max-w-2xl text-white/85 md:text-lg">
+            We build practical websites that help real operators grow with confidence.
           </p>
         </motion.div>
 
@@ -78,7 +78,7 @@ export function Testimonials() {
                     </div>
                     <div>
                       <p className="font-medium">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-white/75">
                         {testimonial.role}
                       </p>
                     </div>

@@ -42,19 +42,19 @@ export default function BookingPage() {
       <div className="flex-1 pt-32 pb-20">
         <div className="mx-auto max-w-4xl px-6 text-center mb-10">
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl mb-4">
-            Book Free Mockup
+            Book Free Website Consult
           </h1>
-          <p className="text-lg text-muted-foreground">
-            Pick a time that works for you. This is a 15-minute, no-obligation call to map your mockup.
+          <p className="text-lg text-white/85">
+            Pick a time that works for you. This is a 15-minute, no-obligation call to map your website growth priorities.
           </p>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-sm">
-            <span className="rounded-full bg-secondary/70 px-3 py-1 text-muted-foreground">
+            <span className="rounded-full bg-secondary/70 px-3 py-1 text-white/85">
               15-minute call
             </span>
-            <span className="rounded-full bg-secondary/70 px-3 py-1 text-muted-foreground">
+            <span className="rounded-full bg-secondary/70 px-3 py-1 text-white/85">
               No obligation
             </span>
-            <span className="rounded-full bg-secondary/70 px-3 py-1 text-muted-foreground">
+            <span className="rounded-full bg-secondary/70 px-3 py-1 text-white/85">
               Cancel anytime
             </span>
           </div>
@@ -64,14 +64,14 @@ export default function BookingPage() {
           {[
             "Book your time",
             "Share your business goals",
-            "Receive your custom mockup plan",
+            "Receive your custom website action plan",
           ].map((step, index) => (
             <div
               key={step}
               className="rounded-xl border border-border/60 bg-card/40 p-4 text-left"
             >
               <p className="text-xs font-semibold text-accent">Step {index + 1}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{step}</p>
+              <p className="mt-1 text-sm text-white/80">{step}</p>
             </div>
           ))}
         </div>
@@ -81,8 +81,8 @@ export default function BookingPage() {
             <h2 className="text-2xl font-semibold tracking-tight">
               Quick questions before booking
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              This helps us prepare your call and build a better mockup plan.
+            <p className="mt-2 text-sm text-white/80">
+              This helps us prepare your call with practical, business-specific advice.
             </p>
 
             <form className="mt-6 grid gap-4 md:grid-cols-2" onSubmit={handleSubmit}>

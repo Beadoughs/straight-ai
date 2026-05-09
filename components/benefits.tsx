@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, UserX, Target, Shield } from "lucide-react";
+import { Clock, Sparkles, Target, Shield } from "lucide-react";
 
 const benefits = [
   {
@@ -11,10 +11,10 @@ const benefits = [
       "Skip the months of back-and-forth with designers and developers. Launch in days.",
   },
   {
-    icon: UserX,
-    title: "No Developers Needed",
+    icon: Sparkles,
+    title: "Seamless Modern Design",
     description:
-      "No technical skills required. We handle all the complex stuff so you don&apos;t have to.",
+      "A clean, premium website experience that reflects your brand and builds trust instantly.",
   },
   {
     icon: Target,
@@ -32,7 +32,7 @@ const benefits = [
 
 export function Benefits() {
   return (
-    <section className="py-16 md:py-24">
+    <section id="why" className="py-10 md:py-14">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ export function Benefits() {
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             Why Choose Straight AI?
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-white/85 md:text-lg">
             Focus on growing your business while we handle your online presence
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export function Benefits() {
                 <benefit.icon className="h-6 w-6 text-foreground transition-colors group-hover:text-accent" />
               </div>
               <h3 className="mb-2 text-lg font-semibold">{benefit.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-white/80 leading-relaxed">
                 {benefit.description}
               </p>
             </motion.div>

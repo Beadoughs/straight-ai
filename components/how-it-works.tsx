@@ -7,9 +7,9 @@ const steps = [
   {
     number: "01",
     icon: MessageSquare,
-    title: "Get Your Free Mockup",
+    title: "Book Your Free Website Consult",
     description:
-      "Send us your details and we'll create a custom mockup in 24 hours. No commitment required.",
+      "Share your goals and current setup so we can map your best next move.",
   },
   {
     number: "02",
@@ -29,7 +29,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="bg-secondary/30 py-16 md:py-24">
+    <section className="bg-secondary/30 py-10 md:py-14">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export function HowItWorks() {
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             How It Works
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-white/85 md:text-lg">
             Three simple steps to your new website
           </p>
         </motion.div>
@@ -71,7 +71,7 @@ export function HowItWorks() {
                   </div>
                 </div>
                 <h3 className="mb-2 text-xl font-semibold">{step.title}</h3>
-                <p className="text-muted-foreground">{step.description}</p>
+                <p className="text-white/80">{step.description}</p>
               </div>
             </motion.div>
           ))}

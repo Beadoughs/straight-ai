@@ -15,8 +15,14 @@ export function Footer() {
               Straight AI
             </span>
           </div>
+          <nav className="flex flex-wrap items-center justify-center gap-4 text-sm text-white/90">
+            <a href="#offer" className="hover:text-white">Offer</a>
+            <a href="#why" className="hover:text-white">Why Straight AI</a>
+            <a href="#work" className="hover:text-white">Who We&apos;ve Worked With</a>
+            <a href="/booking" className="hover:text-white">Book Free Website Consult</a>
+          </nav>
 
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-white/80">
             © {new Date().getFullYear()} Straight AI. All rights reserved.
           </p>
         </div>

@@ -45,7 +45,7 @@ const straightAi = [
 
 export function Comparison() {
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-10 md:py-14">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export function Comparison() {
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             Why We're Better
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-white/85 md:text-lg">
             See how Straight AI compares to traditional agencies and DIY builders.
           </p>
         </motion.div>
@@ -68,8 +68,8 @@ export function Comparison() {
               <thead>
                 <tr className="border-b border-border/60 bg-secondary/30">
                   <th className="p-6 font-semibold w-1/4">Feature</th>
-                  <th className="p-6 font-semibold text-muted-foreground w-1/4">Traditional Agency</th>
-                  <th className="p-6 font-semibold text-muted-foreground w-1/4">DIY Builders</th>
+                  <th className="p-6 font-semibold text-white/85 w-1/4">Traditional Agency</th>
+                  <th className="p-6 font-semibold text-white/85 w-1/4">DIY Builders</th>
                   <th className="p-6 font-semibold text-accent w-1/4">Straight AI</th>
                 </tr>
               </thead>
@@ -78,7 +78,7 @@ export function Comparison() {
                   <tr key={feature} className="transition-colors hover:bg-muted/10">
                     <td className="p-6 font-medium">{feature}</td>
                     
-                    <td className="p-6 text-muted-foreground">
+                    <td className="p-6 text-white/85">
                       {typeof traditional[i] === "boolean" ? (
                         traditional[i] ? <Check className="h-5 w-5 text-green-500" /> : <X className="h-5 w-5 text-destructive" />
                       ) : (
@@ -86,7 +86,7 @@ export function Comparison() {
                       )}
                     </td>
                     
-                    <td className="p-6 text-muted-foreground">
+                    <td className="p-6 text-white/85">
                       {typeof diy[i] === "boolean" ? (
                         diy[i] ? <Check className="h-5 w-5 text-green-500" /> : <X className="h-5 w-5 text-destructive" />
                       ) : (

@@ -9,6 +9,7 @@ import { PricingCTA } from "@/components/pricing-cta";
 import { FinalCTA } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
 import { MobileStickyCTA } from "@/components/mobile-sticky-cta";
+import { WorkedWith } from "@/components/worked-with";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <HowItWorks />
       <Benefits />
       <Comparison />
+      <WorkedWith />
       <Testimonials />
       <PricingCTA />
       <FinalCTA />

@@ -11,7 +11,7 @@ export function MobileStickyCTA() {
           href="/booking"
           onClick={() => trackEvent("cta_click", { location: "mobile_sticky_bar" })}
         >
-          Book Free Mockup
+          Book Free Website Consult
         </a>
       </Button>
     </div>
