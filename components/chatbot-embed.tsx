@@ -10,7 +10,7 @@ declare global {
 }
 
 /**
- * Optional chat widgets (not Voiceflow — use {@link VoiceflowScript} in `layout.tsx`).
+ * Optional chat widgets (not Voiceflow — use `VoiceflowWidget` in `app/layout.tsx`).
  */
 export function ChatbotEmbed() {
   useEffect(() => {
