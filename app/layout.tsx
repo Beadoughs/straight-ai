@@ -60,8 +60,8 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className="font-sans antialiased">
         {children}
-        <VoiceflowWidget />
         <ChatbotEmbed />
+        <VoiceflowWidget />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

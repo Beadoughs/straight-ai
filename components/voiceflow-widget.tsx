@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 declare global {
   interface Window {
+    /** True after `voiceflow.chat.load` has been invoked successfully. */
     __straightAiVoiceflowLoaded?: boolean;
     voiceflow?: {
       chat: {
@@ -20,70 +21,55 @@ type VoiceflowLoadConfig = {
   versionID?: string;
 };
 
-const VF_WIDGET_SRC = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-const VF_RUNTIME = "https://general-runtime.voiceflow.com";
-const VF_VOICE = "https://runtime-api.voiceflow.com";
-const FALLBACK_PROJECT_ID = "6a026584f0415940bedf88e2";
-const POLL_MS = 50;
-const MAX_POLLS = 120; // ~6s
+const WIDGET_SCRIPT_ID = "voiceflow-widget";
 
 /**
- * Injects Voiceflow’s web widget using their documented pattern (insertBefore first script).
- * Polls after onload until `voiceflow.chat.load` exists, then calls `load` once (Strict Mode safe).
+ * Mirrors Voiceflow’s embed snippet (insertBefore first script, onload before src):
+ * `(function(d,t){ var v=d.createElement(t), s=d.getElementsByTagName(t)[0];
+ *   v.onload=function(){ window.voiceflow.chat.load({ verify:{ projectID },
+ *     url:'https://general-runtime.voiceflow.com',
+ *     voice:{ url:'https://runtime-api.voiceflow.com' } }); };
+ *   v.src='https://cdn.voiceflow.com/widget-next/bundle.mjs';
+ *   v.type='text/javascript'; s.parentNode.insertBefore(v,s); })(document,'script');`
  */
 export function VoiceflowWidget() {
   useEffect(() => {
     const w = window;
     if (w.__straightAiVoiceflowLoaded) return;
-    if (document.getElementById("voiceflow-widget")) return;
+    if (document.getElementById(WIDGET_SCRIPT_ID)) return;
 
-    const projectId =
-      process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID?.trim() || FALLBACK_PROJECT_ID;
-    const versionId = process.env.NEXT_PUBLIC_VOICEFLOW_VERSION_ID?.trim();
+    const projectID =
+      (process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID ?? "").trim();
+    if (!projectID) {
+      console.warn(
+        "[Voiceflow] Set NEXT_PUBLIC_VOICEFLOW_PROJECT_ID (see .env.example). Widget not loaded.",
+      );
+      return;
+    }
 
-    const config: VoiceflowLoadConfig = {
-      verify: { projectID: projectId },
-      url: VF_RUNTIME,
-      voice: { url: VF_VOICE },
+    const versionID = (process.env.NEXT_PUBLIC_VOICEFLOW_VERSION_ID ?? "").trim();
+    const loadConfig: VoiceflowLoadConfig = {
+      verify: { projectID },
+      url: "https://general-runtime.voiceflow.com",
+      voice: { url: "https://runtime-api.voiceflow.com" },
     };
-    if (versionId) config.versionID = versionId;
+    if (versionID) loadConfig.versionID = versionID;
 
     const d = document;
     const t = "script";
     const v = d.createElement(t);
     const s = d.getElementsByTagName(t)[0];
 
-    v.id = "voiceflow-widget";
-    v.type = "text/javascript";
-    v.src = VF_WIDGET_SRC;
+    v.id = WIDGET_SCRIPT_ID;
 
-    v.onload = () => {
-      let polls = 0;
-      const id = window.setInterval(() => {
-        polls += 1;
-        if (w.__straightAiVoiceflowLoaded) {
-          window.clearInterval(id);
-          return;
-        }
-        const load = w.voiceflow?.chat?.load;
-        if (load) {
-          window.clearInterval(id);
-          try {
-            load(config);
-            w.__straightAiVoiceflowLoaded = true;
-          } catch (e) {
-            console.error("[Voiceflow] chat.load failed:", e);
-          }
-          return;
-        }
-        if (polls >= MAX_POLLS) {
-          window.clearInterval(id);
-          console.error(
-            "[Voiceflow] Timed out waiting for voiceflow.chat.load (CDN blocked or script error).",
-          );
-        }
-      }, POLL_MS);
+    v.onload = function () {
+      if (w.__straightAiVoiceflowLoaded) return;
+      window.voiceflow!.chat.load(loadConfig);
+      w.__straightAiVoiceflowLoaded = true;
     };
+
+    v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+    v.type = "text/javascript";
 
     v.onerror = () => {
       console.error("[Voiceflow] Failed to load widget script from CDN.");
