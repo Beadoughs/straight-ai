@@ -121,8 +121,8 @@ export function Hero() {
               BOOK A STRATEGY CALL
             </Link>
           </motion.div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }
