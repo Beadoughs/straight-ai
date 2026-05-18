@@ -3,37 +3,41 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export function FinalCTA() {
   return (
-    <section id="contact" className="bg-secondary/30 py-20 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="book-call" className="bg-gradient-to-b from-[#242424] to-[#0d0d0d] py-0">
+      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.55 }}
           className="flex flex-col items-center text-center"
         >
           <h2 className="max-w-3xl text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Ready to Launch Your Website?
+            Your site should be pulling its weight—let&apos;s fix that on a free call.
           </h2>
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            Enter your details and let our experts create a custom mockup for your
-            business within 24 hours. No pressure, no commitment.
+          <p className="mt-4 max-w-2xl text-lg text-white/90">
+            Book a consult and leave with a clear plan: what to change, what to build, and what to
+            prioritize next.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
             <Button asChild size="lg" className="group h-14 px-10 text-lg font-medium">
-              <a href="/booking">
-                Get Your Free Custom Mockup
+              <a
+                href="/booking"
+                onClick={() => trackEvent("cta_click", { location: "final_section" })}
+              >
+                Book Free Website Consult
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
           </div>
 
-          <p className="mt-6 text-sm text-muted-foreground">
-            100% Free Mockup • No obligation • 24 hour turnaround
+          <p className="mt-6 text-sm text-white/90">
+            Free consult • No obligation • Practical action plan
           </p>
         </motion.div>
       </div>

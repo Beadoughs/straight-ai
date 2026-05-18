@@ -32,7 +32,7 @@ const benefits = [
 
 export function Benefits() {
   return (
-    <section className="py-20 md:py-32">
+    <section id="why" className="py-20 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

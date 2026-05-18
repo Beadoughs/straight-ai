@@ -1,29 +1,36 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import Script from 'next/script'
-import { siteConfig } from '@/lib/site-config'
+import { ChatbotEmbed } from '@/components/chatbot-embed'
+import { VoiceflowWidget } from '@/components/voiceflow-widget'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Straight AI | Premium Website Development',
-  description: siteConfig.offerDescription,
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL('https://straight-ai.com'),
+  title: 'Straight AI | AI-Optimized Websites for Business Owners',
+  description: 'Upgrade or relaunch your business website with a conversion-focused build, SEO-ready structure, and ongoing management at $499 + $49/week.',
+  keywords: [
+    'ai optimized website',
+    'business website redesign',
+    'website for business owners',
+    'conversion focused website',
+    'seo ready website',
+  ],
   generator: 'v0.app',
   openGraph: {
-    title: 'Straight AI | Premium Website Development',
-    description: siteConfig.offerDescription,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
+    title: 'Straight AI | AI-Optimized Websites for Business Owners',
+    description: 'Build, launch, and manage a modern website designed for visibility and conversion.',
+    url: 'https://straight-ai.com',
+    siteName: 'Straight AI',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Straight AI | Premium Website Development',
-    description: siteConfig.offerDescription,
+    title: 'Straight AI | AI-Optimized Websites for Business Owners',
+    description: 'Build, launch, and manage a modern website designed for visibility and conversion.',
   },
   icons: {
     icon: [
@@ -53,14 +60,9 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className="font-sans antialiased">
         {children}
+        <ChatbotEmbed />
+        <VoiceflowWidget />
         {process.env.NODE_ENV === 'production' && <Analytics />}
-        {siteConfig.chatbotScriptUrl ? (
-          <Script
-            src={siteConfig.chatbotScriptUrl}
-            strategy="lazyOnload"
-            data-chatbot-id={siteConfig.chatbotId || ''}
-          />
-        ) : null}
       </body>
     </html>
   )

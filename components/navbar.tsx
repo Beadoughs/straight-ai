@@ -1,68 +1,45 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
-import { motion } from "framer-motion";
-import Link from "next/link";
-
-const navLinks = [
-  { label: "SERVICES", href: "#services" },
-  { label: "ABOUT", href: "#about" },
-  { label: "CASE STUDIES", href: "#case-studies" },
-  { label: "CONTACT", href: "#contact" },
-] as const;
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 
 export function Navbar() {
-  const prefersReducedMotion = useReducedMotion();
-
   return (
-    <motion.header
-      initial={prefersReducedMotion ? false : { y: -16, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md"
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 border-b border-white/15 bg-black/95 shadow-[0_1px_0_rgba(255,255,255,0.06)_inset] backdrop-blur-xl"
     >
-      <nav
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10"
-        aria-label="Main"
-      >
-        <Link
-          href="/"
-          className="text-lg font-semibold tracking-[0.12em] text-white transition-opacity hover:opacity-80"
-        >
-          SA
-        </Link>
-
-        <ul className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-[11px] font-medium tracking-[0.18em] text-white/75 transition-colors hover:text-white"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <details className="relative md:hidden">
-          <summary className="cursor-pointer list-none text-[11px] font-medium tracking-[0.18em] text-white/75 marker:content-none [&::-webkit-details-marker]:hidden">
-            MENU
-          </summary>
-          <ul className="absolute right-0 top-full mt-3 min-w-[12rem] border border-white/10 bg-black/95 py-2 backdrop-blur-md">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block px-4 py-2.5 text-[11px] font-medium tracking-[0.18em] text-white/75 transition-colors hover:bg-white/5 hover:text-white"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </details>
-      </nav>
-    </motion.header>
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 md:px-6">
+        <a href="/" className="flex items-center gap-2" aria-label="Go to homepage">
+          <Image
+            src="/sa-logo.png"
+            alt="Straight AI"
+            width={110}
+            height={34}
+            className="h-8 w-auto object-contain"
+            priority
+          />
+        </a>
+        <nav className="hidden items-center gap-4 text-sm text-white/85 md:flex">
+          <a href="#offer" className="transition-colors hover:text-white">Offer</a>
+          <a href="#why" className="transition-colors hover:text-white">Why Straight AI</a>
+          <a href="#work" className="transition-colors hover:text-white">Our Work</a>
+          <a href="#book-call" className="transition-colors hover:text-white">Book</a>
+        </nav>
+        <Button asChild size="sm" className="h-9 bg-white px-3 text-xs font-medium text-black hover:bg-white/90 md:h-10 md:px-4 md:text-sm">
+          <a href="/booking" onClick={() => trackEvent("cta_click", { location: "navbar" })}>
+            Book Free Website Consult
+          </a>
+        </Button>
+      </div>
+      <div className="border-t border-white/10 px-4 py-2 md:hidden">
+        <nav className="flex items-center justify-between text-xs text-white/85">
+          <a href="#offer" className="rounded px-2 py-1 hover:bg-white/10">Offer</a>
+          <a href="#why" className="rounded px-2 py-1 hover:bg-white/10">Why Us</a>
+          <a href="#work" className="rounded px-2 py-1 hover:bg-white/10">Work</a>
+          <a href="#book-call" className="rounded px-2 py-1 hover:bg-white/10">Book</a>
+        </nav>
+      </div>
+    </nav>
   );
 }
