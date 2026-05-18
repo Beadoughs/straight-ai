@@ -4,6 +4,11 @@ export const siteConfig = {
   calendlyUrl: process.env.NEXT_PUBLIC_CALENDLY_URL,
   chatbotScriptUrl: process.env.NEXT_PUBLIC_CHATBOT_SCRIPT_URL,
   chatbotId: process.env.NEXT_PUBLIC_CHATBOT_ID,
+  contact: {
+    phone: "+61 400 000 000",
+    email: "hello@straight-ai.com",
+    location: "Hobart, Tasmania",
+  },
   pricing: {
     packageFromUsd: 499,
   },

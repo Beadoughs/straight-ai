@@ -4,21 +4,22 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Minimalist Black and White default */
-  --background: oklch(0 0 0);
-  --foreground: oklch(1 0 0);
-  --card: oklch(0.08 0 0);
+  /* Premium dark + bronze-gold */
+  --background: oklch(0.05 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.1 0.01 80);
   --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.05 0 0);
+  --popover: oklch(0.07 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(1 0 0);
-  --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.12 0 0);
+  --primary: oklch(0.98 0 0);
+  --primary-foreground: oklch(0.08 0 0);
+  --secondary: oklch(0.14 0.01 80);
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.92 0 0);
-  --accent: oklch(0.2 0 0);
-  --accent-foreground: oklch(1 0 0);
+  --muted: oklch(0.16 0.01 80);
+  --muted-foreground: oklch(0.72 0.02 85);
+  --accent: oklch(0.74 0.09 85);
+  --accent-foreground: oklch(0.12 0.02 80);
+  --gold: #c9a962;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.18 0 0);
@@ -41,20 +42,21 @@
 }
 
 .dark {
-  --background: oklch(0 0 0);
-  --foreground: oklch(1 0 0);
-  --card: oklch(0.08 0 0);
+  --background: oklch(0.05 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.1 0.01 80);
   --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.05 0 0);
+  --popover: oklch(0.07 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(1 0 0);
-  --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.12 0 0);
+  --primary: oklch(0.98 0 0);
+  --primary-foreground: oklch(0.08 0 0);
+  --secondary: oklch(0.14 0.01 80);
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.92 0 0);
-  --accent: oklch(0.2 0 0);
-  --accent-foreground: oklch(1 0 0);
+  --muted: oklch(0.16 0.01 80);
+  --muted-foreground: oklch(0.72 0.02 85);
+  --accent: oklch(0.74 0.09 85);
+  --accent-foreground: oklch(0.12 0.02 80);
+  --gold: #c9a962;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.18 0 0);
@@ -76,8 +78,10 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-gold: var(--gold);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -130,5 +134,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .glass-card {
+    @apply rounded-2xl border border-white/10 bg-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl;
   }
 }

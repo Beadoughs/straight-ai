@@ -1,15 +1,13 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { ValueStack } from "@/components/value-stack";
-import { HowItWorks } from "@/components/how-it-works";
-import { Benefits } from "@/components/benefits";
-import { Comparison } from "@/components/comparison";
-import { Testimonials } from "@/components/testimonials";
-import { PricingCTA } from "@/components/pricing-cta";
+import { TrustedBy } from "@/components/trusted-by";
+import { StatsGrid } from "@/components/stats-grid";
+import { GuaranteeScarcity } from "@/components/guarantee-scarcity";
 import { FinalCTA } from "@/components/final-cta";
+import { FAQ } from "@/components/faq";
 import { Footer } from "@/components/footer";
 import { MobileStickyCTA } from "@/components/mobile-sticky-cta";
-import { WorkedWith } from "@/components/worked-with";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -37,7 +35,7 @@ const serviceSchema = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#0a0a0a]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -49,13 +47,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ValueStack />
-      <HowItWorks />
-      <Benefits />
-      <Comparison />
-      <Testimonials />
-      <PricingCTA />
-      <WorkedWith />
+      <TrustedBy />
+      <StatsGrid />
+      <GuaranteeScarcity />
       <FinalCTA />
+      <FAQ />
       <Footer />
       <div className="h-24 md:hidden" />
       <MobileStickyCTA />
