@@ -1,115 +1,128 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
+import { useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useCallback, useState } from "react";
+
+/** Drop your own B&W mountain at `public/hero-mountain.jpg` to replace the default. */
+const MOUNTAIN_IMAGE_LOCAL = "/hero-mountain.jpg";
+const MOUNTAIN_IMAGE_FALLBACK =
+  "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop";
+
+const headlineLines = [
+  { text: "Modern websites.", bold: false },
+  { text: "Smarter systems.", bold: false },
+  { text: "Stronger businesses.", bold: true },
+] as const;
 
 export function Hero() {
-  const reduceMotion = useReducedMotion();
+  const prefersReducedMotion = useReducedMotion();
+  const [mountainSrc, setMountainSrc] = useState(MOUNTAIN_IMAGE_LOCAL);
+
+  const handleMountainError = useCallback(() => {
+    setMountainSrc((current) =>
+      current === MOUNTAIN_IMAGE_LOCAL ? MOUNTAIN_IMAGE_FALLBACK : current,
+    );
+  }, []);
+
+  const motionProps = prefersReducedMotion
+    ? { initial: false as const, animate: { opacity: 1, x: 0, y: 0 } }
+    : {};
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#060606] to-[#0d0d0d] pt-32 pb-0 md:pt-28">
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        {reduceMotion ? (
-          <div className="absolute top-0 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-white/[0.06] blur-3xl" />
-        ) : (
-          <>
-            {/* Static blurs + light opacity drift only — animating large blurs scales poorly and reads as “glitchy” */}
-            <div className="absolute -top-20 left-[10%] h-[min(420px,50vw)] w-[min(420px,50vw)] rounded-full bg-white/[0.07] blur-3xl" />
-            <div className="absolute top-32 right-[-5%] h-[min(380px,45vw)] w-[min(380px,45vw)] rounded-full bg-white/[0.05] blur-3xl" />
-            <motion.div
-              className="absolute bottom-0 left-1/2 h-[min(360px,40vw)] w-[min(700px,90vw)] -translate-x-1/2 rounded-full bg-white/[0.04] blur-3xl"
-              animate={{ opacity: [0.45, 0.65, 0.45] }}
-              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </>
-        )}
-      </div>
-
-      <div className="mx-auto max-w-6xl px-6 pb-10 md:pb-12">
-        <div className="flex flex-col items-center text-center">
+    <section
+      className="relative min-h-[calc(100vh-4rem)] overflow-hidden bg-black text-white"
+      aria-label="Hero"
+    >
+      {/* Mountain — right on desktop, atmospheric strip on mobile */}
+      <motion.div
+        {...motionProps}
+        initial={prefersReducedMotion ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="pointer-events-none absolute inset-0 md:left-[38%]"
+        aria-hidden
+      >
+        <motion.div
+          {...motionProps}
+          initial={prefersReducedMotion ? false : { opacity: 0, scale: 1.03 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.15 }}
+          className="relative h-[42vh] min-h-[220px] w-full md:absolute md:inset-0 md:h-full"
+        >
+          <Image
+            src={mountainSrc}
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 62vw"
+            className="object-cover object-[center_35%] grayscale contrast-[1.08] brightness-[0.92] md:object-[70%_40%]"
+            onError={handleMountainError}
+          />
+          {/* Fade into black on the left (desktop) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/60 bg-secondary/50 px-4 py-1.5 text-sm text-white/90"
-          >
-            <Zap className="h-3.5 w-3.5 text-white" />
-            <span>Premium Website Development</span>
-          </motion.div>
+            className="absolute inset-0 hidden md:block"
+            style={{
+              background:
+                "linear-gradient(to right, #000 0%, #000 28%, rgba(0,0,0,0.75) 48%, transparent 72%)",
+            }}
+            aria-hidden
+          />
+          {/* Mobile: soften bottom into content area */}
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black md:hidden"
+            aria-hidden
+          />
+        </motion.div>
+      </motion.div>
 
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col justify-end px-6 pb-16 pt-28 md:justify-center md:pb-24 md:pt-32 lg:px-10">
+        <div className="max-w-xl md:max-w-2xl">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            {...motionProps}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="max-w-4xl text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-[2.25rem] font-light leading-[1.12] tracking-tight text-balance sm:text-5xl lg:text-6xl xl:text-7xl"
           >
-            AI-Optimized Websites{" "}
-            <span className="text-white">
-              Built to Convert.
-            </span>{" "}
-            Built to Lead.
+            {headlineLines.map((line) => (
+              <span
+                key={line.text}
+                className={`block ${line.bold ? "font-semibold text-white" : "text-white/90"}`}
+              >
+                {line.text}
+              </span>
+            ))}
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            {...motionProps}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-4 max-w-3xl text-base text-white/90 sm:text-lg md:text-xl"
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            className="mt-6 max-w-md text-base leading-relaxed text-white/65 sm:text-lg md:mt-8 md:max-w-lg"
           >
-            We relaunch your site for visibility, trust, and lead flow, then manage hosting,
-            updates, and AI support so your team stays focused on growth.
+            AI-powered solutions to help your business grow.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            {...motionProps}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-6 flex flex-col items-center gap-3 sm:flex-row"
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="mt-10 md:mt-12"
           >
-            <motion.div
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="rounded-xl border border-white/20 bg-gradient-to-br from-white/12 to-white/5 px-5 py-2.5 shadow-[0_10px_30px_rgba(255,255,255,0.08)] backdrop-blur-sm"
+            <Link
+              href="/booking"
+              className="inline-flex items-center justify-center bg-white px-8 py-3.5 text-xs font-semibold tracking-[0.2em] text-black transition-opacity hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              <p className="text-sm text-white/90">Website package</p>
-              <p className="text-2xl font-bold tracking-tight">
-                $499 + $49
-                <span className="text-base font-normal text-white/90">
-                  /week
-                </span>
-              </p>
-            </motion.div>
+              BOOK A STRATEGY CALL
+            </Link>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-8 w-full sm:w-auto"
-          >
-            <Button asChild size="lg" className="group h-12 w-full px-6 text-base font-medium sm:w-auto sm:px-8">
-              <a
-                href="/booking"
-                onClick={() => trackEvent("cta_click", { location: "hero_primary" })}
-              >
-                Book Free Website Consult
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-            </Button>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
-            className="mt-5 text-sm font-medium tracking-wide text-white/90"
-          >
-            Built by business owners, for business owners.
-          </motion.p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

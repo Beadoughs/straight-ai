@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, Sparkles, Target, Shield } from "lucide-react";
+import { Clock, UserX, Target, Shield } from "lucide-react";
 
 const benefits = [
   {
@@ -11,10 +11,10 @@ const benefits = [
       "Skip the months of back-and-forth with designers and developers. Launch in days.",
   },
   {
-    icon: Sparkles,
-    title: "Seamless Modern Design",
+    icon: UserX,
+    title: "No Developers Needed",
     description:
-      "A clean, premium website experience that reflects your brand and builds trust instantly.",
+      "No technical skills required. We handle all the complex stuff so you don&apos;t have to.",
   },
   {
     icon: Target,
@@ -26,44 +26,44 @@ const benefits = [
     icon: Shield,
     title: "Fully Managed",
     description:
-      "Updates, security, hosting, and maintenance—all handled by our team.",
+      "Updates, security, free hosting, and maintenance—all handled by our team.",
   },
 ];
 
 export function Benefits() {
   return (
-    <section id="why" className="bg-gradient-to-b from-[#141414] to-[#171717] py-0">
-      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
+    <section className="py-20 md:py-32">
+      <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: 0.5 }}
           className="text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Why Business Owners Choose Straight AI
+            Why Choose Straight AI?
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-white/90 md:text-lg">
-            Focus on growth while we handle delivery.
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
+            Focus on growing your business while we handle your online presence
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: index * 0.12 }}
-              className="group rounded-2xl border border-border/60 bg-card/30 p-6 transition-all hover:border-emerald-400/35 hover:bg-card/50"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group rounded-2xl border border-border/60 bg-card/30 p-6 transition-all hover:border-accent/30 hover:bg-card/50"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-secondary transition-colors group-hover:border-emerald-400/30 group-hover:bg-emerald-400/10">
-                <benefit.icon className="h-6 w-6 text-white transition-colors group-hover:text-emerald-400" />
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-secondary transition-colors group-hover:bg-accent/10">
+                <benefit.icon className="h-6 w-6 text-foreground transition-colors group-hover:text-accent" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">{benefit.title}</h3>
-              <p className="text-sm text-white/90 leading-relaxed">
+              <h3 className="mb-2 text-lg font-semibold">{benefit.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {benefit.description}
               </p>
             </motion.div>

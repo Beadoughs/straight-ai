@@ -1,17 +1,21 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Paintbrush,
   Smartphone,
   Search,
   Clock,
+  Bot,
+  Server,
+  RefreshCw,
+  BarChart3,
   Check,
-  Shield,
 } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
-const packageFeatures = [
+const launchFeatures = [
   {
     icon: Paintbrush,
     title: "Custom Design",
@@ -25,7 +29,7 @@ const packageFeatures = [
   {
     icon: Search,
     title: "SEO-Ready Structure",
-    description: "Built for search visibility from day one",
+    description: "Built to rank well on search engines from day one",
   },
   {
     icon: Clock,
@@ -34,107 +38,196 @@ const packageFeatures = [
   },
 ];
 
-export function ValueStack() {
-  const reduceMotion = useReducedMotion();
+const scaleFeatures = [
+  {
+    icon: Bot,
+    title: "24/7 AI Chatbot",
+    description: "Engage visitors and capture leads around the clock",
+  },
+  {
+    icon: Server,
+    title: "Free Hosting",
+    description: "Fast, secure hosting included—no weekly hosting fees",
+  },
+  {
+    icon: RefreshCw,
+    title: "Unlimited Minor Updates",
+    description: "Send us an email and we'll update text or images within 24 hours",
+  },
+  {
+    icon: BarChart3,
+    title: "Monthly Analytics Report",
+    description: "Automated reports summarizing your website traffic and chatbot interactions",
+  },
+];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export function ValueStack() {
   return (
-    <section id="offer" className="bg-gradient-to-b from-[#0d0d0d] to-[#111111] py-0">
-      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
+    <section id="services" className="py-20 md:py-32">
+      <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
-            Website Package
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            Everything You Need to{" "}
+            <span className="text-accent">Launch & Scale</span>
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-white/90 md:text-lg">
-            One offer. Fast launch. Ongoing management.
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
+            One simple pricing model. No hidden fees. No surprises.
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55, delay: 0.2 }}
-          className="mt-8 space-y-6"
-        >
+        <div className="mt-16 grid gap-8 lg:grid-cols-2">
+          {/* Launch Package */}
           <motion.div
-            whileHover={reduceMotion ? undefined : { y: -4 }}
-            transition={{ duration: 0.2 }}
-            className="rounded-2xl"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
           >
-            <Card className="relative overflow-hidden rounded-2xl border-white/25 bg-gradient-to-br from-white/12 via-white/6 to-transparent shadow-[0_14px_40px_rgba(255,255,255,0.08)] backdrop-blur-md transition-shadow duration-200 hover:shadow-[0_18px_48px_rgba(255,255,255,0.14)]">
-            <div className="absolute top-0 right-0 h-36 w-36 -translate-y-1/2 translate-x-1/2 rounded-full bg-white/15 blur-3xl" />
-            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.12),transparent_45%)] pointer-events-none" />
-            <CardHeader className="pb-4">
-              <CardTitle className="text-2xl font-semibold">
-                Website Package
-              </CardTitle>
-              <p className="text-white/90">
-                $499 upfront + $49/week ongoing
-              </p>
-              <p className="text-sm text-white/90">
-                $49/week is tied to the launch package so your website keeps improving after go-live.
-              </p>
-            </CardHeader>
-            <CardContent className="grid gap-4 md:grid-cols-2">
-              {packageFeatures.map((feature) => (
-                <div key={feature.title} className="flex items-start gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-secondary">
-                    <feature.icon className="h-4 w-4 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium">{feature.title}</h4>
-                    <p className="text-sm text-white/90">{feature.description}</p>
+            <Card className="relative overflow-hidden border-border/60 bg-card/50 backdrop-blur-sm">
+              <div className="absolute top-0 right-0 h-32 w-32 -translate-y-1/2 translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
+              <CardHeader className="pb-4">
+                <div className="flex items-baseline justify-between">
+                  <CardTitle className="text-xl font-semibold">
+                    Launch Package
+                  </CardTitle>
+                  <div className="text-right">
+                    <span className="text-3xl font-bold">
+                      From ${siteConfig.pricing.packageFromUsd}
+                    </span>
+                    <span className="text-sm text-muted-foreground">
+                      {" "}
+                      starting
+                    </span>
                   </div>
                 </div>
-              ))}
-              <div className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-secondary">
-                  <Check className="h-4 w-4 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Managed Hosting and Support</h4>
-                  <p className="text-sm text-white/90">
-                    Hosting, AI support, and ongoing updates managed by our team each week.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-secondary">
-                  <Check className="h-4 w-4 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Direct Phone Access</h4>
-                  <p className="text-sm text-white/90">
-                    With $49/week ongoing, you get direct access to our team for website changes and
-                    updates, any AI-related questions, and practical guidance—use us as your
-                    designated AI experts so you can run the business while we handle the tech.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                <p className="text-sm text-muted-foreground">
+                  Everything you need to go live
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {launchFeatures.map((feature) => (
+                  <motion.div
+                    key={feature.title}
+                    variants={itemVariants}
+                    className="flex items-start gap-3"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-secondary">
+                      <feature.icon className="h-4 w-4 text-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium">{feature.title}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </CardContent>
+            </Card>
           </motion.div>
 
-          <div className="rounded-2xl border border-white/15 bg-white/[0.04] px-5 py-5 backdrop-blur-sm">
-            <div className="flex flex-col items-stretch gap-4 md:flex-row md:items-center md:justify-between">
-              <div className="flex gap-3">
-                <Shield className="mt-0.5 h-5 w-5 shrink-0 text-white" aria-hidden />
-                <div>
-                  <p className="font-semibold text-white">100% risk-free guarantee</p>
-                  <p className="mt-1 text-sm text-white/90">
-                    If the first direction misses the mark, we refund your $499. No lock-in.
-                  </p>
+          {/* Scale Package */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <Card className="relative overflow-hidden border-accent/30 bg-card/50 backdrop-blur-sm">
+              <div className="absolute top-0 right-0 h-32 w-32 -translate-y-1/2 translate-x-1/2 rounded-full bg-accent/20 blur-3xl" />
+              <CardHeader className="pb-4">
+                <div className="flex items-baseline justify-between">
+                  <div className="flex items-center gap-2">
+                    <CardTitle className="text-xl font-semibold">
+                      Included With Your Package
+                    </CardTitle>
+                    <span className="rounded-full bg-accent/20 px-2 py-0.5 text-xs font-medium text-accent">
+                      Popular
+                    </span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-3xl font-bold text-accent">Free</span>
+                    <span className="text-sm text-muted-foreground">
+                      {" "}
+                      hosting
+                    </span>
+                  </div>
                 </div>
+                <p className="text-sm text-muted-foreground">
+                  AI, hosting & ongoing management—no extra hosting fees
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {scaleFeatures.map((feature) => (
+                  <motion.div
+                    key={feature.title}
+                    variants={itemVariants}
+                    className="flex items-start gap-3"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/20">
+                      <feature.icon className="h-4 w-4 text-accent" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium">{feature.title}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+
+        {/* Summary */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-12 rounded-2xl border border-border/60 bg-card/30 p-6 backdrop-blur-sm md:p-8"
+        >
+          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
+            <div>
+              <h3 className="text-xl font-semibold">
+                {`Websites starting from $${siteConfig.pricing.packageFromUsd}—with free hosting, AI chatbot, and ongoing management included.`}
+              </h3>
+              <div className="mt-3 flex flex-wrap gap-4 text-sm text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <Check className="h-4 w-4 text-accent" />
+                  No contracts
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Check className="h-4 w-4 text-accent" />
+                  Free hosting included
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Check className="h-4 w-4 text-accent" />
+                  Full ownership
+                </span>
               </div>
-              <p className="shrink-0 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-center text-xs font-semibold tracking-wide text-white md:text-left">
-                Only 5 spots available per month
-              </p>
             </div>
           </div>
         </motion.div>

@@ -34,51 +34,51 @@ const diy = [
 ];
 
 const straightAi = [
-  "$499",
+  "From $499",
   "Days, not months",
   true,
   true,
   true,
-  "Included in $49/week",
+  "Included",
   "Included",
 ];
 
 export function Comparison() {
   return (
-    <section className="bg-gradient-to-b from-[#171717] to-[#1a1a1a] py-0">
-      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
+    <section className="py-20 md:py-32">
+      <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
-          className="mb-10 text-center"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl text-white">
-            Where Straight AI Gives You a Competitive Edge
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            Why We're Better
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-white/90 md:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
             See how Straight AI compares to traditional agencies and DIY builders.
           </p>
         </motion.div>
 
-        <div className="overflow-hidden rounded-2xl border border-white/20 bg-[#232323] shadow-[0_12px_36px_rgba(0,0,0,0.45)] backdrop-blur-sm">
+        <div className="overflow-hidden rounded-2xl border border-border/60 bg-card/30 backdrop-blur-sm">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="border-b border-white/15 bg-[#2d2d2d]">
+                <tr className="border-b border-border/60 bg-secondary/30">
                   <th className="p-6 font-semibold w-1/4">Feature</th>
-                  <th className="p-6 font-semibold text-white/85 w-1/4">Traditional Agency</th>
-                  <th className="p-6 font-semibold text-white/85 w-1/4">DIY Builders</th>
-                  <th className="p-6 font-semibold text-white w-1/4">Straight AI</th>
+                  <th className="p-6 font-semibold text-muted-foreground w-1/4">Traditional Agency</th>
+                  <th className="p-6 font-semibold text-muted-foreground w-1/4">DIY Builders</th>
+                  <th className="p-6 font-semibold text-accent w-1/4">Straight AI</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-border/60">
                 {features.map((feature, i) => (
-                  <tr key={feature} className="transition-colors hover:bg-white/5">
-                    <td className="p-6 font-medium text-white">{feature}</td>
+                  <tr key={feature} className="transition-colors hover:bg-muted/10">
+                    <td className="p-6 font-medium">{feature}</td>
                     
-                    <td className="p-6 text-white/85">
+                    <td className="p-6 text-muted-foreground">
                       {typeof traditional[i] === "boolean" ? (
                         traditional[i] ? <Check className="h-5 w-5 text-green-500" /> : <X className="h-5 w-5 text-destructive" />
                       ) : (
@@ -86,7 +86,7 @@ export function Comparison() {
                       )}
                     </td>
                     
-                    <td className="p-6 text-white/85">
+                    <td className="p-6 text-muted-foreground">
                       {typeof diy[i] === "boolean" ? (
                         diy[i] ? <Check className="h-5 w-5 text-green-500" /> : <X className="h-5 w-5 text-destructive" />
                       ) : (
@@ -94,9 +94,9 @@ export function Comparison() {
                       )}
                     </td>
                     
-                    <td className="bg-white/10 p-6 font-medium text-white">
+                    <td className="p-6 font-medium text-foreground bg-accent/5">
                       {typeof straightAi[i] === "boolean" ? (
-                        straightAi[i] ? <Check className="h-5 w-5 text-green-500" /> : <X className="h-5 w-5 text-red-300" />
+                        straightAi[i] ? <Check className="h-5 w-5 text-accent" /> : <X className="h-5 w-5 text-destructive" />
                       ) : (
                         straightAi[i]
                       )}

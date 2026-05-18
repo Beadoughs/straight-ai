@@ -1,8 +1,0 @@
-<svg width="300" height="80" viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="300" height="80" rx="12" fill="#0B0B0B"/>
-  <circle cx="40" cy="40" r="16" fill="#FFFFFF"/>
-  <path d="M31 40C31 34.4772 35.4772 30 41 30H54V50H41C35.4772 50 31 45.5228 31 40Z" fill="#0B0B0B"/>
-  <text x="74" y="48" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">
-    BEADOUGHS
-  </text>
-</svg>
