@@ -126,7 +126,7 @@ export function Hero() {
             >
               VIEW PACKAGES
             </Link>
-          </motion.div>
+          </div>
         </motion.div>
 
         <div className="relative mx-auto h-[min(420px,52vh)] w-full max-w-md lg:mx-0 lg:max-w-none lg:h-[min(480px,58vh)]">
