@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -42,7 +43,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="bg-[#0a0a0a] py-20 md:py-28">
+    <section id="faq" className="section-pad bg-[#0c0c0c]">
       <div className="mx-auto max-w-3xl px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -50,31 +51,30 @@ export function FAQ() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="font-serif text-3xl text-white md:text-4xl">
+          <p className="label-caps">FAQ</p>
+          <h2 className="font-serif mt-4 text-3xl text-white md:text-4xl">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-white/55">
-            Everything you need to know before you launch.
-          </p>
         </motion.div>
 
-        <Accordion
-          type="single"
-          collapsible
-          className="mt-12 divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/[0.03] px-6"
-        >
+        <Accordion type="single" collapsible className="mt-12 space-y-3">
           {faqs.map((faq) => (
-            <AccordionItem key={faq.question} value={faq.question} className="border-white/10">
-              <AccordionTrigger className="text-left text-base font-medium text-white hover:no-underline hover:text-[#C9A962]">
-                {faq.question}
+            <AccordionItem
+              key={faq.question}
+              value={faq.question}
+              className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#0a0a0a] px-0"
+            >
+              <AccordionTrigger className="group px-6 py-5 text-left text-base font-medium text-white hover:no-underline hover:text-[#C9A962] [&>svg]:hidden">
+                <span className="pr-4">{faq.question}</span>
+                <ChevronDown className="ml-auto h-5 w-5 shrink-0 text-white/40 transition-transform group-data-[state=open]:rotate-180 group-data-[state=open]:text-[#C9A962]" />
               </AccordionTrigger>
-              <AccordionContent className="text-sm leading-relaxed text-white/60">
+              <AccordionContent className="px-6 pb-6 text-sm font-light leading-relaxed text-white/60">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
-      </div>
+      </motion.div>
     </section>
   );
 }

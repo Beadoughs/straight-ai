@@ -12,7 +12,7 @@ const services = [
 ];
 
 const company = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "#offer" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
   { label: "Book a Call", href: "/booking" },
@@ -20,9 +20,9 @@ const company = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#080808] py-14 md:py-16">
+    <footer className="border-t border-white/[0.08] bg-[#080808] py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" aria-label="Go to homepage">
               <Image
@@ -33,22 +33,20 @@ export function Footer() {
                 className="h-9 w-auto object-contain"
               />
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/55">
+            <p className="mt-4 max-w-xs text-sm font-light leading-relaxed text-white/55">
               Premium AI-optimized websites built to convert—supported for the long
               run.
             </p>
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold tracking-[0.18em] text-[#C9A962]">
-              SERVICES
-            </h4>
-            <ul className="mt-4 space-y-3">
+            <h4 className="label-caps">Services</h4>
+            <ul className="mt-5 space-y-3">
               {services.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/65 transition-colors hover:text-white"
+                    className="text-sm font-light text-white/65 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -58,15 +56,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold tracking-[0.18em] text-[#C9A962]">
-              COMPANY
-            </h4>
-            <ul className="mt-4 space-y-3">
+            <h4 className="label-caps">Company</h4>
+            <ul className="mt-5 space-y-3">
               {company.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/65 transition-colors hover:text-white"
+                    className="text-sm font-light text-white/65 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -76,10 +72,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold tracking-[0.18em] text-[#C9A962]">
-              CONTACT
-            </h4>
-            <ul className="mt-4 space-y-3 text-sm text-white/65">
+            <h4 className="label-caps">Contact</h4>
+            <ul className="mt-5 space-y-3 text-sm font-light text-white/65">
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
@@ -101,7 +95,7 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-white/40 md:text-left">
+        <p className="mt-14 border-t border-white/[0.08] pt-8 text-center text-xs text-white/40 md:text-left">
           © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
         </p>
       </div>

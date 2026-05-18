@@ -8,7 +8,7 @@ import { trackEvent } from "@/lib/analytics";
 
 const MOUNTAIN_LOCAL = "/hero-mountain.jpg";
 const MOUNTAIN_FALLBACK =
-  "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2400&auto=format&fit=crop";
 
 export function FinalCTA() {
   const [mountainSrc, setMountainSrc] = useState(MOUNTAIN_LOCAL);
@@ -20,18 +20,18 @@ export function FinalCTA() {
   }, []);
 
   return (
-    <section id="contact" className="relative overflow-hidden py-24 md:py-32">
+    <section id="contact" className="relative min-h-[420px] overflow-hidden md:min-h-[480px]">
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
           src={mountainSrc}
           alt=""
           fill
-          className="object-cover object-center brightness-[0.4]"
+          className="object-cover object-center brightness-[0.38] saturate-0"
           sizes="100vw"
           onError={handleMountainError}
         />
-        <div className="absolute inset-0 bg-black/65" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/40 to-black/30" />
       </div>
 
       <motion.div
@@ -39,19 +39,15 @@ export function FinalCTA() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-10"
+        className="relative z-10 flex min-h-[420px] flex-col items-center justify-center px-6 py-24 text-center md:min-h-[480px] md:py-32 lg:px-10"
       >
-        <h2 className="font-serif text-3xl leading-tight text-white md:text-5xl lg:text-6xl">
+        <h2 className="font-serif max-w-3xl text-3xl leading-tight text-white md:text-5xl lg:text-6xl">
           Ready to build a smarter business?
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-base text-white/65 md:text-lg">
-          Get your free custom mockup in 24 hours. No pressure, no commitment—just
-          a clear picture of what your new site could look like.
-        </p>
         <Link
           href="/booking"
           onClick={() => trackEvent("cta_click", { location: "final_cta" })}
-          className="mt-10 inline-flex items-center justify-center bg-[#C9A962] px-10 py-4 text-xs font-semibold tracking-[0.18em] text-black transition-opacity hover:opacity-90"
+          className="mt-10 inline-flex min-h-[48px] items-center justify-center bg-[#C9A962] px-12 py-4 text-[11px] font-semibold tracking-[0.16em] text-[#0a0a0a] transition-opacity hover:opacity-90"
         >
           CONTACT US →
         </Link>

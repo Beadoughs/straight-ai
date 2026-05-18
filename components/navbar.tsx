@@ -19,13 +19,13 @@ export function Navbar() {
       initial={prefersReducedMotion ? false : { y: -16, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-black/50 backdrop-blur-md"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-[#0a0a0a]/40 backdrop-blur-lg"
     >
       <nav
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10"
+        className="relative mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-6 lg:px-10"
         aria-label="Main"
       >
-        <Link href="/" className="flex items-center" aria-label="Straight AI home">
+        <Link href="/" className="flex items-center justify-self-start" aria-label="Straight AI home">
           <Image
             src="/sa-logo.png"
             alt="Straight AI"
@@ -36,12 +36,12 @@ export function Navbar() {
           />
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center justify-center gap-10 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-[11px] font-medium tracking-[0.18em] text-white/75 transition-colors hover:text-[#C9A962]"
+                className="text-[11px] font-medium tracking-[0.2em] text-white/70 transition-colors hover:text-[#C9A962]"
               >
                 {link.label}
               </Link>
@@ -49,38 +49,40 @@ export function Navbar() {
           ))}
         </ul>
 
-        <Link
-          href="/booking"
-          className="hidden bg-[#C9A962] px-5 py-2 text-[10px] font-semibold tracking-[0.16em] text-black transition-opacity hover:opacity-90 md:inline-flex"
-        >
-          FREE MOCKUP
-        </Link>
+        <div className="flex items-center justify-self-end gap-4">
+          <Link
+            href="/booking"
+            className="hidden bg-[#C9A962] px-5 py-2.5 text-[10px] font-semibold tracking-[0.14em] text-[#0a0a0a] transition-opacity hover:opacity-90 md:inline-flex"
+          >
+            FREE MOCKUP
+          </Link>
 
-        <details className="relative md:hidden">
-          <summary className="cursor-pointer list-none text-[11px] font-medium tracking-[0.18em] text-white/75 marker:content-none [&::-webkit-details-marker]:hidden">
-            MENU
-          </summary>
-          <ul className="absolute right-0 top-full mt-3 min-w-[12rem] rounded-lg border border-white/10 bg-black/95 py-2 backdrop-blur-md">
-            {navLinks.map((link) => (
-              <li key={link.href}>
+          <details className="relative md:hidden">
+            <summary className="cursor-pointer list-none text-[11px] font-medium tracking-[0.18em] text-white/75 marker:content-none [&::-webkit-details-marker]:hidden">
+              MENU
+            </summary>
+            <ul className="absolute right-0 top-full mt-3 min-w-[12rem] rounded-xl border border-white/10 bg-[#0a0a0a]/95 py-2 backdrop-blur-xl">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block px-4 py-2.5 text-[11px] font-medium tracking-[0.18em] text-white/75 transition-colors hover:bg-white/5 hover:text-[#C9A962]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
                 <Link
-                  href={link.href}
-                  className="block px-4 py-2.5 text-[11px] font-medium tracking-[0.18em] text-white/75 transition-colors hover:bg-white/5 hover:text-[#C9A962]"
+                  href="/booking"
+                  className="block px-4 py-2.5 text-[11px] font-semibold tracking-[0.16em] text-[#C9A962]"
                 >
-                  {link.label}
+                  FREE MOCKUP
                 </Link>
               </li>
-            ))}
-            <li>
-              <Link
-                href="/booking"
-                className="block px-4 py-2.5 text-[11px] font-semibold tracking-[0.16em] text-[#C9A962]"
-              >
-                FREE MOCKUP
-              </Link>
-            </li>
-          </ul>
-        </details>
+            </ul>
+          </details>
+        </div>
       </nav>
     </motion.header>
   );

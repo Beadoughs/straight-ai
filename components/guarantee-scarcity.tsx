@@ -7,21 +7,21 @@ import { trackEvent } from "@/lib/analytics";
 
 export function GuaranteeScarcity() {
   return (
-    <section className="bg-[#0c0c0c] py-16 md:py-20">
-      <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-2 lg:px-10">
+    <section className="section-pad bg-[#0a0a0a]">
+      <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-2 lg:gap-8 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="glass-card flex flex-col p-8 md:p-10"
         >
-          <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#C9A962]/15">
-            <Shield className="h-7 w-7 text-[#C9A962]" />
+          <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-[#C9A962]/30 bg-[#C9A962]/12">
+            <Shield className="h-7 w-7 text-[#C9A962]" strokeWidth={1.5} />
           </div>
-          <h3 className="font-serif text-2xl text-white md:text-3xl">
+          <h3 className="font-serif text-2xl text-white md:text-[1.75rem]">
             100% Risk-Free Guarantee
           </h3>
-          <p className="mt-4 text-sm leading-relaxed text-white/60 md:text-base">
+          <p className="mt-4 text-sm font-light leading-relaxed text-white/60 md:text-base">
             Love your initial design, or we&apos;ll refund your package investment.
             No questions asked—you only move forward when you&apos;re thrilled.
           </p>
@@ -35,13 +35,11 @@ export function GuaranteeScarcity() {
           className="glass-card flex flex-col justify-between p-8 md:p-10"
         >
           <div>
-            <p className="text-xs font-semibold tracking-[0.2em] text-[#C9A962]">
-              LIMITED AVAILABILITY
-            </p>
-            <h3 className="font-serif mt-3 text-2xl text-white md:text-3xl">
+            <p className="label-caps">Limited Availability</p>
+            <h3 className="font-serif mt-4 text-2xl text-white md:text-[1.75rem]">
               Only 5 spots available per month
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-white/60 md:text-base">
+            <p className="mt-4 text-sm font-light leading-relaxed text-white/60 md:text-base">
               We cap new projects so every client gets senior-level attention and a
               fast turnaround. Reserve your spot before this month fills up.
             </p>
@@ -49,7 +47,7 @@ export function GuaranteeScarcity() {
           <Link
             href="/booking"
             onClick={() => trackEvent("cta_click", { location: "scarcity_card" })}
-            className="mt-8 inline-flex w-full items-center justify-center bg-white px-8 py-3.5 text-xs font-semibold tracking-[0.16em] text-black transition-opacity hover:bg-white/90 sm:w-auto"
+            className="mt-8 inline-flex w-full min-h-[48px] items-center justify-center bg-white px-8 py-3.5 text-[11px] font-semibold tracking-[0.14em] text-black transition-opacity hover:bg-white/92"
           >
             CLAIM YOUR SPOT →
           </Link>
