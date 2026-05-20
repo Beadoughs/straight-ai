@@ -164,7 +164,7 @@ export default function BookingPage() {
                   }
                 >
                   <option value="">Select budget</option>
-                  <option value="$499 upfront + $49/week">Ready for current package</option>
+                  <option value="From $499 with free hosting">Ready for current package</option>
                   <option value="Need custom package">Need custom package</option>
                   <option value="Not sure yet">Not sure yet</option>
                 </select>
@@ -206,8 +206,9 @@ export default function BookingPage() {
                   }
                 />
                 <span className="text-white/85">
-                  I understand package pricing starts at <strong>$499 + $49/week</strong> and
-                  this consult is focused on planning the right scope for my business.
+                  I understand package pricing starts at <strong>$499</strong> with{" "}
+                  <strong>free hosting</strong> included, and this consult is focused on
+                  planning the right scope for my business.
                 </span>
               </label>
               <button
